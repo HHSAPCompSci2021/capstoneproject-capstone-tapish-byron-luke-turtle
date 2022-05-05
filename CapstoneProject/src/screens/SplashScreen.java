@@ -1,5 +1,5 @@
 package screens;
 
-public class SplashScreen {
+public class SplashScreen extends Screen {
 
 }

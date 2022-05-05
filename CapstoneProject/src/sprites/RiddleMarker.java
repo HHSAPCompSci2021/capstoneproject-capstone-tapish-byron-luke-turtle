@@ -1,5 +1,5 @@
 package sprites;
 
-public class RiddleMarker {
+public class RiddleMarker extends Sprite {
 
 }

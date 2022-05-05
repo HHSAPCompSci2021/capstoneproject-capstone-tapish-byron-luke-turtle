@@ -1,5 +1,5 @@
 package sprites;
 
-public class Obstacle {
+public class Obstacle extends Sprite {
 
 }
