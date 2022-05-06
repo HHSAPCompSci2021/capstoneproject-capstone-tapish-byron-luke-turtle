@@ -13,7 +13,7 @@ public class GameScreen extends Screen {
 	PImage key;
 	Turtle player;
 	ArrayList<Obstacle> obstacles;
-	ArrayList<RiddleMarker> riddles;
+	ArrayList<Chest> riddles;
 	
 	
 	public GameScreen(DrawingSurface surface) {
