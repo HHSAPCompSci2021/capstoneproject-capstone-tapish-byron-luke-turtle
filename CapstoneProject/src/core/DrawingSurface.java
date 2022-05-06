@@ -10,9 +10,12 @@ import screens.Screen;
 import processing.core.*;
 
 public class DrawingSurface extends PApplet implements ScreenSwitcher {
-	
+	/*
+	 * ratioX and ratioY found in gamePhysDemoAP lab and implemented in the draw method
+	 * but looked up scale method and found it changes scale of shape?
+	 * doesn't seem to be needed in this project
 	public float ratioX, ratioY;
-	
+	*/
 	private ArrayList<Integer> keyInputs;
 	
 	private Screen activeScreen;
@@ -20,7 +23,10 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	
 	// no args const.
 	public DrawingSurface() {
+		// initializes all of the screens and adds them to the array of screens. Inspired by screen switching mechanism in physicsDemoAP
 		screens = new ArrayList<Screen>();
+		
+		// NOT to be confused w/ number of Keys turtle has!
 		keyInputs = new ArrayList<Integer>();
 		
 		SplashScreen screen1 = new SplashScreen(this);
@@ -46,12 +52,14 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	}
 	
 	public void draw() {
-		ratioX = (float)width/activeScreen.DRAWING_WIDTH;
-		ratioY = (float)height/activeScreen.DRAWING_HEIGHT;
+	//	ratioX = (float)width/activeScreen.DRAWING_WIDTH;
+	//	ratioY = (float)height/activeScreen.DRAWING_HEIGHT;
+	//	once again, ratio dynamics don't appear to be needed.
+	//	preserved them here in comment form if we need them down the line.
 
 		push();
 		
-		scale(ratioX, ratioY);
+	//	scale(ratioX, ratioY);
 		
 		activeScreen.draw();
 		
