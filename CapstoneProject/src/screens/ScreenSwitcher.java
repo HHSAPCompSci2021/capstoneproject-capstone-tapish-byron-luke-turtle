@@ -6,4 +6,5 @@ public interface ScreenSwitcher {
 	public static final int VICTORY_S = 2;
 	
 	public void switchScreen(int i);
+	
 }

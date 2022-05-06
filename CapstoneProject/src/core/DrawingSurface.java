@@ -23,9 +23,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		screens = new ArrayList<Screen>();
 		keyInputs = new ArrayList<Integer>();
 		
-		SplashScreen screen1 = new SplashScreen();
-		GameScreen screen2 = new GameScreen();
-		FinishScreen screen3 = new FinishScreen();
+		SplashScreen screen1 = new SplashScreen(this);
+		GameScreen screen2 = new GameScreen(this);
+		FinishScreen screen3 = new FinishScreen(this);
 		
 		screens.add(screen1);
 		screens.add(screen2);
@@ -36,8 +36,33 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 
 	@Override
 	public void switchScreen(int i) {
-		// TODO Auto-generated method stub
+		activeScreen = screens.get(i);
+	}
+	
+	public void setup() {
+		for(Screen s : screens) {
+			s.setup();
+		}
+	}
+	
+	public void draw() {
+		ratioX = (float)width/activeScreen.DRAWING_WIDTH;
+		ratioY = (float)height/activeScreen.DRAWING_HEIGHT;
+
+		push();
+		
+		scale(ratioX, ratioY);
+		
+		activeScreen.draw();
+		
+		pop();
+	}
+	
+	public void keyPressed() {
 		
 	}
 	
+	public void keyReleased() {
+		
+	}
 }
