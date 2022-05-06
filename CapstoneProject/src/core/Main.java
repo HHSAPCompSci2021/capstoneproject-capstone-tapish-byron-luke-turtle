@@ -6,9 +6,18 @@ import javax.swing.JFrame;
 
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
-
+/**
+ * This is the main runner class for this project
+ * @author Tapish Singh
+ * @version 5/6/22
+ *
+ */
 public class Main {
 
+	/**
+	 * Main method for the project
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		// standard DrawingSurface main method found in other labs. This one is a slightly modified version of the one found in GamePhysicsDemoAP.
