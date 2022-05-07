@@ -10,7 +10,7 @@ public class SplashScreen extends Screen {
 	
 	/**
 	 * Creates a splash screen with preset dimensions. 
-	 * @param surface
+	 * @param surface DrawingSurface upon which the splash screen will be created
 	 */
 	public SplashScreen(DrawingSurface surface) {
 		super(900, 700);
@@ -21,9 +21,7 @@ public class SplashScreen extends Screen {
 		
 	}
 	
-	/**
-	 * 
-	 */
+	
 	public void draw() {
 		
 	}

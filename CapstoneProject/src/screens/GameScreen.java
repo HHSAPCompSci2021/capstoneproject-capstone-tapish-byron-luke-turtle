@@ -16,6 +16,10 @@ public class GameScreen extends Screen {
 	ArrayList<Chest> riddles;
 	
 	
+	/**
+	 * Creates a game screen (the screen which the player will primarily interact with) with preset dimensions. 
+	 * @param surface DrawingSurface upon which the game screen will be created
+	 */
 	public GameScreen(DrawingSurface surface) {
 		super(900, 700);
 		this.surface = surface;

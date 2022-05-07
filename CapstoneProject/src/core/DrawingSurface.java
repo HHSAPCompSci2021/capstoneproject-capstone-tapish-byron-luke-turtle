@@ -51,7 +51,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	}
 
 	/**
-	 * Method for switching screens
+	 * Switches to a different screen based on parameter passed through
 	 * @param i the screen number you want to switch to
 	 */
 	public void switchScreen(int i) {
@@ -59,7 +59,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	}
 	
 	/**
-	 * method for setting up all of the screens
+	 * Sets up all of the screens
 	 * Loops through all screens stored in an ArrayList and sets them up with their own setup method
 	 */
 	public void setup() {
