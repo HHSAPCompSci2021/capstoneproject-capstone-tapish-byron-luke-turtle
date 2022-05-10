@@ -8,9 +8,7 @@ package core;
  * COMMAND FOR JAVADOCS (copy and paste safe) - go to PROJECT directory
  * javadoc -author -version -tag pre:cm:"Precondition:" -tag post:cm:"Postcondition:" -d doc -classpath ./lib/* -sourcepath ./src/ <PACKAGE NAME>
  * 
- * COMMAND FOR JARS (copy and paste safe) - go to project BIN directory
- * jar cvf SentientTurtleAlphaFixed0510.jar core screens sprites
- * NOTE: jar packaging continues w/o error, but it doesn't appear to run as jar, even with eclipse main method working
+ * COMMAND FOR JARS - USE ECLIPSE ITSELF - "runnable jar"
  */
 
 import javax.swing.JFrame;
