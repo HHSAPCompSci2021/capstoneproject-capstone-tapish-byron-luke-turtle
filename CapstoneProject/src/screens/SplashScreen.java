@@ -1,4 +1,11 @@
 package screens;
+<<<<<<< HEAD
+import core.DrawingSurface;
+/**
+ * 
+ * @author Luke, Tapish, Byron
+ * SplashScreen
+=======
 
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
@@ -9,6 +16,7 @@ import core.DrawingSurface;
 /**
  * This class represents the home screen when you start the game. 
  * @version 5/6/22
+>>>>>>> 5dcaaa58be35647a2b1aa3720438571451926c9e
  */
 public class SplashScreen extends Screen {
 	DrawingSurface surface;

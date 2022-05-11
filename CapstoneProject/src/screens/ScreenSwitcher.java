@@ -1,5 +1,9 @@
 package screens;
-
+/**
+ * 
+ * @author Luke, Tapish, Byron
+ * ScreenSwitcher
+ */
 public interface ScreenSwitcher {
 	public static final int SPLASH_S = 0;
 	public static final int GAME_S = 1;

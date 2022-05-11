@@ -3,7 +3,11 @@ package screens;
 import java.awt.event.KeyEvent;
 
 import core.DrawingSurface;
-
+/**
+ * 
+ * @author Luke, Tapish, Byron
+ * this is the finishscreen
+ */
 public class FinishScreen extends Screen {
 
 	DrawingSurface surface;
