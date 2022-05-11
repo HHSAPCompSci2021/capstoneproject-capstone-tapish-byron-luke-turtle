@@ -5,7 +5,11 @@ import java.util.ArrayList;
 import core.DrawingSurface;
 import processing.core.PImage;
 import sprites.*;
-
+/**
+ * 
+ * @author Luke, Tapish, Byron
+ * GameScreen 
+ */
 public class GameScreen extends Screen {
 	
 	int difficulty;

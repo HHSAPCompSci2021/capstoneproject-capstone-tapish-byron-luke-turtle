@@ -1,7 +1,10 @@
 package screens;
-
 import core.DrawingSurface;
-
+/**
+ * 
+ * @author Luke, Tapish, Byron
+ * SplashScreen
+ */
 public class SplashScreen extends Screen {
 
 	DrawingSurface surface;

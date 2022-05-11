@@ -1,7 +1,11 @@
 package screens;
 
 import core.DrawingSurface;
-
+/**
+ * 
+ * @author Luke, Tapish, Byron
+ * this is the finishscreen
+ */
 public class FinishScreen extends Screen {
 
 	DrawingSurface surface;
