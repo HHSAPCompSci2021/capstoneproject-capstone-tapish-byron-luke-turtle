@@ -1,5 +1,6 @@
 package screens;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import core.DrawingSurface;
@@ -17,9 +18,13 @@ public class GameScreen extends Screen {
 	PImage key;
 	Turtle player;
 	ArrayList<Obstacle> obstacles;
-	ArrayList<RiddleMarker> riddles;
+	ArrayList<Chest> riddles;
 	
 	
+	/**
+	 * Creates a game screen (the screen which the player will primarily interact with) with preset dimensions. 
+	 * @param surface DrawingSurface upon which the game screen will be created
+	 */
 	public GameScreen(DrawingSurface surface) {
 		super(900, 700);
 		this.surface = surface;
@@ -30,6 +35,14 @@ public class GameScreen extends Screen {
 	}
 	
 	public void draw() {
+		surface.background(0, 255, 0);
 		
+		if(surface.isPressed(KeyEvent.VK_ESCAPE)) {
+			surface.switchScreen(ScreenSwitcher.SPLASH_S);
+		}
+		
+		if(surface.isPressed(KeyEvent.VK_3)) {
+			surface.switchScreen(ScreenSwitcher.VICTORY_S);
+		}
 	}
 }
