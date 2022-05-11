@@ -32,8 +32,11 @@ public class SplashScreen extends Screen {
 			surface.switchScreen(ScreenSwitcher.GAME_S);
 		}
 		
+		/*
+		 * for testing purposes
 		if(surface.isPressed(KeyEvent.VK_3)) {
 			surface.switchScreen(ScreenSwitcher.VICTORY_S);
 		}
+		*/
 	}
 }

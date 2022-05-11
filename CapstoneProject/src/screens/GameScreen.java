@@ -33,7 +33,7 @@ public class GameScreen extends Screen {
 	public void draw() {
 		surface.background(0, 255, 0);
 		
-		if(surface.isPressed(KeyEvent.VK_1)) {
+		if(surface.isPressed(KeyEvent.VK_ESCAPE)) {
 			surface.switchScreen(ScreenSwitcher.SPLASH_S);
 		}
 		
