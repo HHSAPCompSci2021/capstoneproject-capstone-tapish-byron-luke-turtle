@@ -5,8 +5,31 @@ package sprites;
  * @version 5/6/22
  */
 public class RiddleBank {
-	String riddle, answer, hint;
+	private String riddle, answer, hint;
 	
+	/**
+	 * Returns the contents of the riddle field in the form of a String
+	 * @return String the riddle in question
+	 */
+	public String getRiddle() {
+		return riddle;
+	}
+	
+	/**
+	 * Returns the contents of the answer field in the form of a String
+	 * @return String the answer to the riddle in question
+	 */
+	public String getAnswer() {
+		return answer;
+	}
+	
+	/**
+	 * Returns the contents of the hint field in the form of a String
+	 * @return String the hint to the riddle in question
+	 */
+	public String getHint() {
+		return hint;
+	}
 	/**
 	 * Creates the selected riddle. 
 	 * All riddles are pulled from https://parade.com/947956/parade/riddles/

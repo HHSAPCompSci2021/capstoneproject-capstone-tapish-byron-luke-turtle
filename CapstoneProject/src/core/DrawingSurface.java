@@ -20,8 +20,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 * ratioX and ratioY found in gamePhysDemoAP lab and implemented in the draw method
 	 * but looked up scale method and found it changes scale of shape?
 	 * doesn't seem to be needed in this project
+	 * */
 	public float ratioX, ratioY;
-	*/
+	
 	private ArrayList<Integer> keyInputs;
 	
 	private Screen activeScreen;
@@ -72,14 +73,14 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 * method for displaying things on the Processing window
 	 */
 	public void draw() {
-	//	ratioX = (float)width/activeScreen.DRAWING_WIDTH;
-	//	ratioY = (float)height/activeScreen.DRAWING_HEIGHT;
+		ratioX = (float)width/activeScreen.DRAWING_WIDTH;
+		ratioY = (float)height/activeScreen.DRAWING_HEIGHT;
 	//	once again, ratio dynamics don't appear to be needed.
 	//	preserved them here in comment form if we need them down the line.
 
 		push();
 		
-	//	scale(ratioX, ratioY);
+		scale(ratioX, ratioY);
 		
 		activeScreen.draw();
 		
@@ -90,7 +91,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 * Method that is called when a key is pressed
 	 */
 	public void keyPressed() {
-		
+		keyInputs.add(keyCode);
+		if(key == ESC) 
+			key = 0;
 	}
 	
 	
@@ -98,6 +101,11 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 * Method that is called when a key is released
 	 */
 	public void keyReleased() {
-		
+		while(keyInputs.contains(keyCode))
+			keyInputs.remove(new Integer(keyCode));
+	}
+	
+	public boolean isPressed(Integer code) {
+		return keyInputs.contains(code);
 	}
 }

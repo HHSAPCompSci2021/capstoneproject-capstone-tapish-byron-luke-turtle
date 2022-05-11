@@ -1,5 +1,7 @@
 package screens;
 
+import java.awt.event.KeyEvent;
+
 import core.DrawingSurface;
 /**
  * This class represents the home screen when you start the game. 
@@ -17,12 +19,21 @@ public class SplashScreen extends Screen {
 		this.surface = surface;
 	}
 	
+	/*
 	public void setup() {
 		
 	}
-	
+	*/
 	
 	public void draw() {
+		surface.background(255, 0, 0);
 		
+		if(surface.isPressed(KeyEvent.VK_2)) {
+			surface.switchScreen(ScreenSwitcher.GAME_S);
+		}
+		
+		if(surface.isPressed(KeyEvent.VK_3)) {
+			surface.switchScreen(ScreenSwitcher.VICTORY_S);
+		}
 	}
 }

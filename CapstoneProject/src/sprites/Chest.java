@@ -5,7 +5,7 @@ package sprites;
  * @version 5/6/22
  */
 public class Chest extends Sprite {
-	RiddleBank riddle;
+	private RiddleBank riddle;
 	
 	/**
 	 * This creates a chest at the specified place in the coordinate grid and places it facing a certain direction.

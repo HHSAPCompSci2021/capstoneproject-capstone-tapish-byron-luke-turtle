@@ -1,5 +1,7 @@
 package screens;
 
+import java.awt.event.KeyEvent;
+
 import core.DrawingSurface;
 
 public class FinishScreen extends Screen {
@@ -20,6 +22,14 @@ public class FinishScreen extends Screen {
 	}
 	
 	public void draw() {
+		surface.background(0, 0, 255);
 		
+		if(surface.isPressed(KeyEvent.VK_2)) {
+			surface.switchScreen(ScreenSwitcher.GAME_S);
+		}
+		
+		if(surface.isPressed(KeyEvent.VK_1)) {
+			surface.switchScreen(ScreenSwitcher.SPLASH_S);
+		}
 	}
 }
