@@ -1,5 +1,9 @@
 package core;
 import java.util.*;
+
+import g4p_controls.GDropList;
+import g4p_controls.GEvent;
+
 import java.awt.*;
 import screens.SplashScreen;
 import screens.GameScreen;
@@ -56,7 +60,13 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 * @param i the screen number you want to switch to
 	 */
 	public void switchScreen(int i) {
+		// use vis method in splashscreen to hide dropwdown, setvisibility
+		
+		
 		activeScreen = screens.get(i);
+		
+		
+		
 	}
 	
 	/**
@@ -85,6 +95,10 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		activeScreen.draw();
 		
 		pop();
+	}
+	
+	public void handleDropListEvents(GDropList list, GEvent event) {
+		System.out.println("Item selected:" + list.getSelectedText());
 	}
 	
 	/**

@@ -40,7 +40,7 @@ public class Main {
 
 		window.setSize(900, 700);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setResizable(false);
+		window.setResizable(true);
 
 		window.setVisible(true);
 		

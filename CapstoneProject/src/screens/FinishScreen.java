@@ -28,7 +28,7 @@ public class FinishScreen extends Screen {
 			surface.switchScreen(ScreenSwitcher.GAME_S);
 		}
 		
-		if(surface.isPressed(KeyEvent.VK_1)) {
+		if(surface.isPressed(KeyEvent.VK_ESCAPE)) {
 			surface.switchScreen(ScreenSwitcher.SPLASH_S);
 		}
 	}
