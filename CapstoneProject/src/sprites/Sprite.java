@@ -1,9 +1,18 @@
 package sprites;
 
 import java.awt.Color;
+import java.awt.*;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
+import java.awt.geom.AffineTransform;
+import java.awt.image.*;
+import javax.swing.*;
+
+
+import javax.swing.ImageIcon;
+
+import processing.core.PApplet;
+import processing.core.PImage;
 
 /**
  * This class represents a default sprite.
@@ -24,8 +33,8 @@ public abstract class Sprite {
 	 * @param y the y-coordinate of the sprite
 	 * @param facingDir the initial direction the sprite faces when spawned
 	 */
-	public Sprite(Image img, int x, int y, int width, int height, int facingDir) {
-		image = img;
+	public Sprite(String img, int x, int y, int width, int height, int facingDir) {
+		image = (new ImageIcon(img)).getImage();
 		this.x = x;
 		this.y = y;
 		this.width = width;
@@ -55,5 +64,31 @@ public abstract class Sprite {
 		
 		return false;
 	}
+	
+	public void applyWindowLimits(int windowWidth, int windowHeight) {
+		x = Math.min(x,windowWidth-width);
+		y = Math.min(y,windowHeight-height);
+		x = Math.max(0,x);
+		y = Math.max(0,y);
+	}
+	
+	public int getX() {
+		return x;
+	}
 
+	public int getY() {
+		return x;
+	}
+	
+	public int getDirection() {
+		return facingDirection;
+	}
+	
+	public double getWidth() {
+		return width;
+	}
+	
+	public double getHeight() {
+		return height;
+	}
 }

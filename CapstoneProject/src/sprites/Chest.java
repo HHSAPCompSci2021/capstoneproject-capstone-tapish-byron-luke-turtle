@@ -14,8 +14,8 @@ public class Chest extends Sprite {
 	 * @param x the x-coordinate of the sprite
 	 * @param y the y-coordinate of the sprite
 	 */
-	public Chest(Image img, int x, int y, int width, int height) {
-		super(img, x, y, width, height, 2);
+	public Chest(int x, int y, int width, int height) {
+		super("chest.png", x, y, width, height, 2);
 	}
 	
 	/**

@@ -5,7 +5,6 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import g4p_controls.*;
 import processing.core.*;
-
 import core.DrawingSurface;
 /**
  * This class represents the home screen when you start the game. 
@@ -61,7 +60,6 @@ public class SplashScreen extends Screen {
 	
 	public void draw() {
 		surface.background(255, 200, 200);
-		
 		
 	}
 	

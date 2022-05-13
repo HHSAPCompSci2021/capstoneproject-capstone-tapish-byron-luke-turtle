@@ -2,6 +2,8 @@ package sprites;
 
 import java.awt.Image;
 
+import javax.swing.ImageIcon;
+
 /**
  * This class represents the main character which is controlled by the player using arrowkeys.
  * @version 5/6/22
@@ -20,8 +22,8 @@ public class Turtle extends Sprite {
 	 * @param y the y-coordinate of the sprite
 	 * @param facingDir the initial direction the sprite faces when spawned
 	 */
-	public Turtle(Image img, int x, int y, int width, int height, int faceDir) {
-		super(img, x, y, width, height, faceDir);
+	public Turtle(int x, int y, int width, int height, int faceDir) {
+		super("turtle.png", x, y, width, height, faceDir);
 	}
 	
 	/**
@@ -35,7 +37,7 @@ public class Turtle extends Sprite {
 		if(dir == 2) y += speed;
 		if(dir == 3) x -= speed;
 	}
-	
+
 	/**
 	 * Checks if the turtle can move and if not it stays in place.
 	 */

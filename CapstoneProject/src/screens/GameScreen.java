@@ -34,7 +34,7 @@ public class GameScreen extends Screen {
 	}
 	
 	public void setup() {
-		
+
 	}
 	
 	public boolean getPauseStatus() {
