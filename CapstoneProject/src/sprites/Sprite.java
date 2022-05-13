@@ -101,7 +101,6 @@ public abstract class Sprite {
 	}
 	
 	public void draw(PApplet g, int x, int y, int width, int height) {
-		applyWindowLimits(g.width, g.height);
 		g.image(new PImage(image), x, y, width, height);
 	}
 }

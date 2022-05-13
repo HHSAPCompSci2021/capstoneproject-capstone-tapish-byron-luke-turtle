@@ -20,9 +20,10 @@ public class GameScreen extends Screen {
 	PImage key;
 	Turtle player;
 	ArrayList<Obstacle> obstacles;
+	ArrayList<Enemy> enemies;
 	ArrayList<Chest> riddles;
 	private boolean pause = false;
-	private long  start;
+	private long start, timePaused;
 	
 	
 	/**
@@ -33,6 +34,9 @@ public class GameScreen extends Screen {
 		super(900, 700);
 		this.surface = surface;
 		player = new Turtle(100, 100, 100, 75, 1);
+		//obstacles.add(new Obstacle(200, 200, 20, 20));
+		//enemies.add(new Enemy(150, 20, 50, 50, true));
+		//riddles.add(new Chest(20, 150, 50, 50));
 	}
 	
 	public void setup() {
@@ -44,13 +48,28 @@ public class GameScreen extends Screen {
 	}
 	
 	public void draw() {
-		long elapsed = System.currentTimeMillis() - start;
+		long elapsed = System.currentTimeMillis() - start - timePaused;
 		int min = (int) (elapsed/1000/60);
 		int sec = (int) ((elapsed/1000)%60);
 		int rem = (int) (elapsed%1000);
 		
 		surface.background(0, 0, 0);
+		player.applyWindowLimits(900,700);
 		player.draw(surface, player.getX(), player.getY(), player.getWidth(), player.getHeight());
+		/*
+		for (int i = 0; i < obstacles.size(); i++) {
+			Obstacle obs = obstacles.get(i);
+			obs.draw(surface, obs.getX(), obs.getY(), obs.getWidth(), obs.getHeight());
+		}
+		for (int i = 0; i < enemies.size(); i++) {
+			Enemy enemy = enemies.get(i);
+			enemy.draw(surface, enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHeight());
+		}
+		for (int i = 0; i < riddles.size(); i++) {
+			Chest rid = riddles.get(i);
+			rid.draw(surface, rid.getX(), rid.getY(), rid.getWidth(), rid.getHeight());
+		}
+		*/
 		surface.textSize(30);
 		surface.text(min+":"+sec+":"+rem, 5, 30);
 		if(surface.isPressed(KeyEvent.VK_ESCAPE)) {
@@ -58,7 +77,6 @@ public class GameScreen extends Screen {
 			if(answer == JOptionPane.YES_OPTION) {
 			}
 		}
-		
 		if(surface.isPressed(KeyEvent.VK_UP)) {
 			player.walk(0);
 		}

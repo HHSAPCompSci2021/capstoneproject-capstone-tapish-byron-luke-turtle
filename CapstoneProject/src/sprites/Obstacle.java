@@ -16,7 +16,7 @@ public class Obstacle extends Sprite {
 	 * @param obsType the type of obstacle(lethal: 0, non-lethal: 1)
 	 */
 	public Obstacle(int x, int y, int width, int height) {
-		super("src/sprites/obstacle.png", x, y, width, height, 2);
+		super("src/sprites/brick.jpg", x, y, width, height, 2);
 		this.obsType = obsType;
 	}
 	
