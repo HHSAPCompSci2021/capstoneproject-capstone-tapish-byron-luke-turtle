@@ -24,7 +24,9 @@ public class Obstacle extends Sprite {
 	 * Randomly places obstacles around the map
 	 */
 	public void decideSpawnPoint() {
-		
+		int pointX = (int)Math.random()*10;
+		int pointY = (int)Math.random()*10;
+		Obstacle obs = new Obstacle(pointX, pointY, 2, 2);
 	}
 	
 	/**

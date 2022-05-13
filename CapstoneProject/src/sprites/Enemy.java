@@ -16,6 +16,7 @@ public class Enemy extends Sprite{
 	 */
 	public Enemy(int x, int y, int width, int height, int faceDir) {
 		super("enemy.png", x, y, width, height, faceDir);
+		
 	}
 	
 }

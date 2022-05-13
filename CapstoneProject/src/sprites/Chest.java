@@ -23,6 +23,7 @@ public class Chest extends Sprite {
 	 * @param num the number for the riddle chosen(riddles are numbered)
 	 */
 	public void chooseRiddle(int num) {
-		riddle = new RiddleBank(num);
+		int choose = (int) (Math.random()*15);
+		riddle = new RiddleBank(choose);
 	}
 }
