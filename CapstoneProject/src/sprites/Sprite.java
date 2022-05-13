@@ -52,7 +52,7 @@ public abstract class Sprite {
 		
 		int overlapLeft = Math.max(x, other.x); // Find the rectangle of space in which the 2 sprite images overlap with each other
 		int overlapTop = Math.max(y, other.y);
-		int overlapRight = Math.min(other.width+other.x, width+x);
+		int overlapRight = Math.min(other.width+other.x+10, width+x+10);
 		int overlapBottom = Math.min(height+y, other.height+other.y);
 		
 		for (int i = overlapLeft; i < overlapRight; i++ ) {   // Look at every pixel coordinate in the rectangle
