@@ -22,6 +22,7 @@ public class GameScreen extends Screen {
 	ArrayList<Obstacle> obstacles;
 	ArrayList<Chest> riddles;
 	private boolean pause = false;
+	private long  start;
 	
 	
 	/**
@@ -31,11 +32,11 @@ public class GameScreen extends Screen {
 	public GameScreen(DrawingSurface surface) {
 		super(900, 700);
 		this.surface = surface;
-		player = new Turtle(10, 10, 100, 75, 1);
+		player = new Turtle(100, 100, 100, 75, 1);
 	}
 	
 	public void setup() {
-
+		start = System.currentTimeMillis();
 	}
 	
 	public boolean getPauseStatus() {
@@ -43,14 +44,18 @@ public class GameScreen extends Screen {
 	}
 	
 	public void draw() {
+		long elapsed = System.currentTimeMillis() - start;
+		int min = (int) (elapsed/1000/60);
+		int sec = (int) ((elapsed/1000)%60);
+		int rem = (int) (elapsed%1000);
+		
 		surface.background(0, 0, 0);
 		player.draw(surface, player.getX(), player.getY(), player.getWidth(), player.getHeight());
-		
+		surface.textSize(30);
+		surface.text(min+":"+sec+":"+rem, 5, 30);
 		if(surface.isPressed(KeyEvent.VK_ESCAPE)) {
-			// PUT STUFF HERE THAT WILL PAUSE THE TIMER
 			int answer = JOptionPane.showConfirmDialog(null, "Resume game?");
 			if(answer == JOptionPane.YES_OPTION) {
-			// PUT STUFF HERE THAT WILL RESUME THE TIMER
 			}
 		}
 		
