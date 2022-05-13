@@ -1,6 +1,9 @@
 package core;
 import java.util.*;
 
+import javax.swing.JOptionPane;
+
+import g4p_controls.*;
 import g4p_controls.GDropList;
 import g4p_controls.GEvent;
 
@@ -31,6 +34,11 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	
 	private Screen activeScreen;
 	private ArrayList<Screen> screens;
+	// need this for G4P stuff
+	private SplashScreen buttonVar;
+	
+	// CHANGE THIS TO MAP CLASS AND UPDATE CODE BYRON!
+	private GameScreen diffVar;
 	
 	// no args const.
 	/**
@@ -53,6 +61,8 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		screens.add(screen3);
 		
 		activeScreen = screens.get(0);
+		buttonVar = screen1;
+		diffVar = screen2;
 	}
 
 	/**
@@ -101,6 +111,19 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		System.out.println("Item selected:" + list.getSelectedText());
 	}
 	
+	public void handleButtonEvents(GButton button, GEvent event) {
+		if(button == buttonVar.getControlB() && event == GEvent.CLICKED) {
+			JOptionPane.showMessageDialog(null, "CONTROLS:\n" + "- Use the arrow keys to move the sprite\n"
+					+ "- To interact with chests, press the spacebar when you are in its vicinity.\nEnter the response to the riddle when prompted.\n"
+					+ "- Press the Esc key at any time to pause the game.");
+		}
+		else if(button == buttonVar.getStButton() && event == GEvent.CLICKED) {
+			buttonVar.setButtonVis(false);
+			buttonVar.setMenuVis(false);
+			switchScreen(1);
+		}
+	}
+	
 	/**
 	 * Method that is called when a key is pressed
 	 */
@@ -108,6 +131,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		keyInputs.add(keyCode);
 		if(key == ESC) 
 			key = 0;
+		
 	}
 	
 	

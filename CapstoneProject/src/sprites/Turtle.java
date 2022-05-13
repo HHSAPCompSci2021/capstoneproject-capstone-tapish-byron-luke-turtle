@@ -6,6 +6,12 @@ package sprites;
  */
 public class Turtle extends Sprite {
 	private int numKeys, secsPassed, score;
+	
+	/* SET THIS VARIABLE TO TRUE WHEN THE TURTLE GETS ENOUGH KEYS TO WIN
+	 * screen switching depends on this
+	 * CHANGE THIS VARIABLE TO TRUE AS VERY LAST THING AT GAME CONCLUSION
+	 */
+	private static boolean hasEnoughKeys = false;
 	/**
 	 * This creates a turtle at a specified place in the coordinate grid and places it facing a certain direction.
 	 * @param x the x-coordinate of the sprite

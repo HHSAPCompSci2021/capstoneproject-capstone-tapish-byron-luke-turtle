@@ -13,8 +13,8 @@ import core.DrawingSurface;
  */
 public class SplashScreen extends Screen {
 	DrawingSurface surface;
-	private Rectangle controls, startGame;
 	private GDropList diff;
+	public GButton controls, startGame;
 	
 	/**
 	 * Creates a splash screen with preset dimensions. 
@@ -23,8 +23,14 @@ public class SplashScreen extends Screen {
 	public SplashScreen(DrawingSurface surface) {
 		super(900, 700);
 		this.surface = surface;
-		controls = new Rectangle(900/2-100,200,200,100);
-		startGame = new Rectangle(900/2-100,400,200,100);
+	}
+	
+	public GButton getControlB() {
+		return controls;
+	}
+	
+	public GButton getStButton() {
+		return startGame;
 	}
 	
 	
@@ -33,50 +39,30 @@ public class SplashScreen extends Screen {
 		G4P.setGlobalColorScheme(GCScheme.PURPLE_SCHEME);
 		// Some start text
 		  
-		diff = new GDropList(surface, 100, 100, 100, 100, 0);
+		diff = new GDropList(surface, 400, 300, 100, 100, 0);
 		  
 		diff.setItems(new String[] {"Easy", "Hard"}, 0);
 
+		controls = new GButton(surface, 350, 200, 200, 60, "Controls");
+		startGame = new GButton(surface, 350, 350, 200, 60, "Play");
 	}
 	
 	
-	// methods for setting visibility
-	
-	
-	/*
-	public void handleDropListEvents(GDropList list, GEvent event) {
-		System.out.println("Item selected:" + list.getSelectedText());
+	public void setMenuVis(boolean vis) {
+			diff.setVisible(vis);
 	}
-	*/
+	
+	public void setButtonVis(boolean vis) {
+		controls.setVisible(vis);
+		startGame.setVisible(vis);
+	}
+	
+	
 	
 	public void draw() {
-		surface.background(255, 255, 255);
-		
-		surface.rect(controls.x, controls.y, controls.width, controls.height);
-		surface.fill(255);
-		surface.rect(startGame.x, startGame.y, startGame.width, startGame.height);
-		surface.fill(0);
-		
-		String str1 = "Controls";
-		float w = surface.textWidth(str1);
-		surface.text(str1, controls.x+controls.width/2-w/2, controls.y+controls.height/2);
-		
-		String str2 = "Start game";
-		float w2 = surface.textWidth(str2);
-		surface.text(str2, startGame.x+startGame.width/2-w2/2, startGame.y+startGame.height/2);
-		
-
-		if(surface.isPressed(KeyEvent.VK_2)) {
-			surface.switchScreen(ScreenSwitcher.GAME_S);
-		}
+		surface.background(255, 200, 200);
 		
 		
-		/*
-		 * for testing purposes
-		if(surface.isPressed(KeyEvent.VK_3)) {
-			surface.switchScreen(ScreenSwitcher.VICTORY_S);
-		}
-		*/
 	}
 	
 	

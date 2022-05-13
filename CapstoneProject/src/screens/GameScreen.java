@@ -3,6 +3,8 @@ package screens;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import core.DrawingSurface;
 import processing.core.PImage;
 import sprites.*;
@@ -19,6 +21,7 @@ public class GameScreen extends Screen {
 	Turtle player;
 	ArrayList<Obstacle> obstacles;
 	ArrayList<Chest> riddles;
+	private boolean pause = false;
 	
 	
 	/**
@@ -34,12 +37,22 @@ public class GameScreen extends Screen {
 		
 	}
 	
+	public boolean getPauseStatus() {
+		return pause;
+	}
+	
 	public void draw() {
 		surface.background(0, 255, 0);
 		
+		
 		if(surface.isPressed(KeyEvent.VK_ESCAPE)) {
-			surface.switchScreen(ScreenSwitcher.SPLASH_S);
+			// PUT STUFF HERE THAT WILL PAUSE THE TIMER
+			int answer = JOptionPane.showConfirmDialog(null, "Resume game?");
+			if(answer == JOptionPane.YES_OPTION) {
+			// PUT STUFF HERE THAT WILL RESUME THE TIMER
+			}
 		}
+		
 		
 		if(surface.isPressed(KeyEvent.VK_3)) {
 			surface.switchScreen(ScreenSwitcher.VICTORY_S);
