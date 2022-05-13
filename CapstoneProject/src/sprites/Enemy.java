@@ -21,7 +21,7 @@ public class Enemy extends Sprite{
 	}
 	
 	public void move(int dir) {
-		int speed = 4;
+		int speed = 6;
 		if(dir == 0) setY(getY() - speed);
 		if(dir == 1) setX(getX() + speed);
 		if(dir == 2) setY(getY() + speed);
