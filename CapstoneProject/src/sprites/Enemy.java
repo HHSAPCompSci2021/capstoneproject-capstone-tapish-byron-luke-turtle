@@ -15,9 +15,18 @@ public class Enemy extends Sprite{
 	 * @param faceDir the initial direction the enemy faces when spawned
 	 * @param direction the direction the enemy moves(true: vertical, false: horizontal)
 	 */
+
 	public Enemy(int x, int y, int width, int height, boolean direction) {
 		super("src/sprites/krab.png", x, y, width, height, 1);
 		this.direction = direction; 
+	}
+	
+	public void move(int dir) {
+		int speed = 6;
+		if(dir == 0) setY(getY() - speed);
+		if(dir == 1) setX(getX() + speed);
+		if(dir == 2) setY(getY() + speed);
+		if(dir == 3) setX(getX() - speed);
 	}
 	
 	
