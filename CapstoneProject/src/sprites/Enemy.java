@@ -1,5 +1,7 @@
 package sprites;
 
+import java.awt.Image;
+
 /**
  * This represents an enemy that hurts the character on contact. 
  * @version 5/6/22
@@ -12,8 +14,8 @@ public class Enemy extends Sprite{
 	 * @param y the y-coordinate of the enemy
 	 * @param faceDir the initial direction the enemy faces when spawned
 	 */
-	public Enemy(double x, double y, int faceDir) {
-		super(x, y, faceDir);
+	public Enemy(Image img, int x, int y, int width, int height, int faceDir) {
+		super(img, x, y, width, height, faceDir);
 	}
 	
 }

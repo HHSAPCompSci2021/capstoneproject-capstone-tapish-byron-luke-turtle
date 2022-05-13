@@ -1,5 +1,7 @@
 package sprites;
 
+import java.awt.Image;
+
 /**
  * This class represents the chests the character can interact with to answer riddles.
  * @version 5/6/22
@@ -12,8 +14,8 @@ public class Chest extends Sprite {
 	 * @param x the x-coordinate of the sprite
 	 * @param y the y-coordinate of the sprite
 	 */
-	public Chest(double x, double y) {
-		super(x, y, 2);
+	public Chest(Image img, int x, int y, int width, int height) {
+		super(img, x, y, width, height, 2);
 	}
 	
 	/**

@@ -1,5 +1,7 @@
 package sprites;
 
+import java.awt.Image;
+
 /**
  * This class represents an obstacle that prevents the character from moving past. 
  * @version 5/6/22
@@ -11,13 +13,25 @@ public class Obstacle extends Sprite {
 	 * This creates an object at a specified coordinate.
 	 * @param x the x-coordinate of the obstacle
 	 * @param y the y-coordinate of the obstacle
+	 * @param obsType the type of obstacle(lethal: 0, non-lethal: 1)
 	 */
-	public Obstacle(double x, double y) {
-		super(x, y, 2);
+	public Obstacle(Image img, int x, int y, int width, int height) {
+		super(img, x, y, width, height, 2);
+		this.obsType = obsType;
 	}
 	
-	// method below is only if we decide to make obst spawning random
+	/**
+	 * Randomly places obstacles around the map
+	 */
 	public void decideSpawnPoint() {
 		
+	}
+	
+	/**
+	 * Gets the obstacle type(lethal or non-lethal)
+	 * @return obstacle type
+	 */
+	public int getObsType() {
+		return obsType;
 	}
 }

@@ -1,13 +1,19 @@
 package sprites;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+
 /**
  * This class represents a default sprite.
  * @version 5/6/22
  */
 public abstract class Sprite {
 
-	private double x, y;
+	private int x, y, width, height;
 	private int facingDirection;
+	private Image image;
 	public final static int FACE_RIGHT = 0;
 	public final static int FACE_LEFT = 1;
 	public final static int NOTAPPLICABLE = 2;
@@ -18,9 +24,36 @@ public abstract class Sprite {
 	 * @param y the y-coordinate of the sprite
 	 * @param facingDir the initial direction the sprite faces when spawned
 	 */
-	public Sprite(double x, double y, int facingDir) {
+	public Sprite(Image img, int x, int y, int width, int height, int facingDir) {
+		image = img;
 		this.x = x;
 		this.y = y;
+		this.width = width;
+		this.height = height;
 		facingDirection = facingDir;
 	}
+	
+	public boolean doesSpritePixelsCollide(Sprite other) {
+		BufferedImage pic = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB); // Make a new image that I can draw on
+		Graphics g = pic.getGraphics(); // This Graphics will draw on to the image
+		g.setColor(Color.WHITE); 
+		g.fillRect(0, 0, pic.getWidth(), pic.getHeight()); // Make the whole image white
+		g.drawImage(image,0,0,width,height,null);
+		
+		int overlapLeft = Math.max(x, other.x); // Find the rectangle of space in which the 2 sprite images overlap with each other
+		int overlapTop = Math.max(y, other.y);
+		int overlapRight = Math.min(width+x, other.width+other.x);
+		int overlapBottom = Math.min(height+y, other.height+other.y);
+		
+		for (int i = overlapLeft; i < overlapRight; i++ ) {   // Look at every pixel coordinate in the rectangle
+			for (int j = overlapTop; j < overlapBottom; j++ ) {
+				if (pic.getRGB(i-x, j-y) != Color.WHITE.getRGB()) {  // If that pixel is not white (you can also look for a specific color instead of any non-white pixel)
+					return true;  // There was a collision!
+				}
+			}  
+		}
+		
+		return false;
+	}
+
 }
