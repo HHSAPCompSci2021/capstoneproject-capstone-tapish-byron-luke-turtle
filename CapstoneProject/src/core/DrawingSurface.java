@@ -9,6 +9,7 @@ import g4p_controls.GEvent;
 
 import java.awt.*;
 import screens.SplashScreen;
+import sprites.Turtle;
 import screens.GameScreen;
 import screens.ScreenSwitcher;
 import screens.FinishScreen;
@@ -39,7 +40,6 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	
 	// CHANGE THIS TO MAP CLASS AND UPDATE CODE BYRON!
 	private GameScreen diffVar;
-	
 	// no args const.
 	/**
 	 * No args constructor for DrawingSurface object
@@ -99,6 +99,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	//	preserved them here in comment form if we need them down the line.
 
 		push();
+		
 		
 		scale(ratioX, ratioY);
 		

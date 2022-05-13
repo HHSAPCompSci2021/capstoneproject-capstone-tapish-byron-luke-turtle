@@ -7,7 +7,7 @@ import java.awt.Image;
 import java.awt.geom.AffineTransform;
 import java.awt.image.*;
 import javax.swing.*;
-
+import core.DrawingSurface;
 
 import javax.swing.ImageIcon;
 
@@ -23,6 +23,7 @@ public abstract class Sprite {
 	private int x, y, width, height;
 	private int facingDirection;
 	private Image image;
+	
 	public final static int FACE_RIGHT = 0;
 	public final static int FACE_LEFT = 1;
 	public final static int NOTAPPLICABLE = 2;
@@ -77,18 +78,29 @@ public abstract class Sprite {
 	}
 
 	public int getY() {
-		return x;
+		return y;
 	}
 	
+	public void setX(int x) {
+		this.x = x;
+	}
+	public void setY(int y) {
+		 this.y = y;
+	}
+	 
 	public int getDirection() {
 		return facingDirection;
 	}
 	
-	public double getWidth() {
+	public int getWidth() {
 		return width;
 	}
 	
-	public double getHeight() {
+	public int getHeight() {
 		return height;
+	}
+	
+	public void draw(PApplet g, int x, int y, int width, int height) {
+		g.image(new PImage(image), x, y, width, height);
 	}
 }

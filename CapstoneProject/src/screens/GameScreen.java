@@ -31,6 +31,7 @@ public class GameScreen extends Screen {
 	public GameScreen(DrawingSurface surface) {
 		super(900, 700);
 		this.surface = surface;
+		player = new Turtle(10, 10, 100, 75, 1);
 	}
 	
 	public void setup() {
@@ -42,8 +43,8 @@ public class GameScreen extends Screen {
 	}
 	
 	public void draw() {
-		surface.background(0, 255, 0);
-		
+		surface.background(0, 0, 0);
+		player.draw(surface, player.getX(), player.getY(), player.getWidth(), player.getHeight());
 		
 		if(surface.isPressed(KeyEvent.VK_ESCAPE)) {
 			// PUT STUFF HERE THAT WILL PAUSE THE TIMER
@@ -53,7 +54,19 @@ public class GameScreen extends Screen {
 			}
 		}
 		
-		
+		if(surface.isPressed(KeyEvent.VK_UP)) {
+			player.walk(0);
+		}
+		if(surface.isPressed(KeyEvent.VK_DOWN)) {
+			player.walk(2);
+		}
+		if(surface.isPressed(KeyEvent.VK_LEFT)) {
+			player.walk(3);
+		}
+		if(surface.isPressed(KeyEvent.VK_RIGHT)) {
+			player.walk(1);
+		}
+
 		if(surface.isPressed(KeyEvent.VK_3)) {
 			surface.switchScreen(ScreenSwitcher.VICTORY_S);
 		}

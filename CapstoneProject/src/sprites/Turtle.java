@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
  * @version 5/6/22
  */
 public class Turtle extends Sprite {
-	private int numKeys, secsPassed, score, x, y;
+	private int numKeys, secsPassed, score;
 	
 	/* SET THIS VARIABLE TO TRUE WHEN THE TURTLE GETS ENOUGH KEYS TO WIN
 	 * screen switching depends on this
@@ -23,7 +23,7 @@ public class Turtle extends Sprite {
 	 * @param facingDir the initial direction the sprite faces when spawned
 	 */
 	public Turtle(int x, int y, int width, int height, int faceDir) {
-		super("turtle.png", x, y, width, height, faceDir);
+		super("src/sprites/turtle.png", x, y, width, height, faceDir);
 	}
 	
 	/**
@@ -32,10 +32,10 @@ public class Turtle extends Sprite {
 	 */
 	public void walk(int dir) {
 		int speed = 4;
-		if(dir == 0) y -= speed;
-		if(dir == 1) x += speed;
-		if(dir == 2) y += speed;
-		if(dir == 3) x -= speed;
+		if(dir == 0) setY(getY() - speed);
+		if(dir == 1) setX(getX() + speed);
+		if(dir == 2) setY(getY() + speed);
+		if(dir == 3) setX(getX() - speed);
 	}
 
 	/**

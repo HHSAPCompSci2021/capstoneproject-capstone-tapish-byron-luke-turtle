@@ -15,7 +15,7 @@ public class Enemy extends Sprite{
 	 * @param faceDir the initial direction the enemy faces when spawned
 	 */
 	public Enemy(int x, int y, int width, int height, int faceDir) {
-		super("enemy.png", x, y, width, height, faceDir);
+		super("src/sprites/enemy.png", x, y, width, height, faceDir);
 		
 	}
 	
