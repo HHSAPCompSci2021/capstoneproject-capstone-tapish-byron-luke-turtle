@@ -17,6 +17,7 @@ import processing.core.PImage;
 /**
  * This class represents a default sprite.
  * @version 5/6/22
+ * @author Byron Tam, Tapish Singh
  */
 public abstract class Sprite {
 
@@ -43,6 +44,11 @@ public abstract class Sprite {
 		facingDirection = facingDir;
 	}
 	
+	/**
+	 * Method for determining whether two sprites are colliding
+	 * @param other the other sprite you want to check collision with
+	 * @return boolean variable for whether or not they are colliding
+	 */
 	public boolean doesSpritePixelsCollide(Sprite other) {
 		BufferedImage pic = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB); // Make a new image that I can draw on
 		Graphics g = pic.getGraphics(); // This Graphics will draw on to the image
@@ -66,6 +72,11 @@ public abstract class Sprite {
 		return false;
 	}
 	
+	/**
+	 * Method for setting window limits for movement
+	 * @param windowWidth max width sprite can move to
+	 * @param windowHeight max height sprite can move to
+	 */
 	public void applyWindowLimits(int windowWidth, int windowHeight) {
 		x = Math.min(x,windowWidth-width);
 		y = Math.min(y,windowHeight-height);
@@ -73,33 +84,70 @@ public abstract class Sprite {
 		y = Math.max(0,y);
 	}
 	
+	/**
+	 * returns x coordinate of sprite
+	 * @return x coordinate of sprite
+	 */
 	public int getX() {
 		return x;
 	}
 
+	/**
+	 * returns y coordinate of sprite
+	 * @return y coordinate of sprite
+	 */
 	public int getY() {
 		return y;
 	}
 	
+	/**
+	 * sets the x coordinate of sprite
+	 * @param x the x coordinate you want to set the sprite to
+	 */
 	public void setX(int x) {
 		this.x = x;
 	}
+	
+	/**
+	 * sets the y coordinate of sprite
+	 * @param y the y coordinate you want to set the sprite to
+	 */
 	public void setY(int y) {
 		 this.y = y;
 	}
 	 
+	/**
+	 * returns the direction the sprite is facing
+	 * @return the direction the sprite is facing
+	 */
 	public int getDirection() {
 		return facingDirection;
 	}
 	
+	/**
+	 * returns the width of the sprite
+	 * @return the width of the sprite
+	 */
 	public int getWidth() {
 		return width;
 	}
 	
+	/**
+	 * returns the height of the sprite
+	 * @return the height of the sprite
+	 */
 	public int getHeight() {
 		return height;
 	}
 	
+	/**
+	 * Method for displaying the image of the sprite on the processing window/screen
+	 * @param g the PApplet stuff is drawn upon
+	 * @param x x coord of imaage
+	 * @param y y coord of image
+	 * @param width width of the image
+	 * @param height height of the image
+	 */
 	public void draw(PApplet g, int x, int y, int width, int height) {
 		g.image(new PImage(image), x, y, width, height);
 	}

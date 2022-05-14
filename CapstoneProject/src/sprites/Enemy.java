@@ -21,6 +21,10 @@ public class Enemy extends Sprite{
 		this.direction = direction; 
 	}
 	
+	/**
+	 * Sets the direction of movement of the enemy
+	 * @param dir the direction of movement of the enemy
+	 */
 	public void move(int dir) {
 		int speed = 6;
 		if(dir == 0) setY(getY() - speed);

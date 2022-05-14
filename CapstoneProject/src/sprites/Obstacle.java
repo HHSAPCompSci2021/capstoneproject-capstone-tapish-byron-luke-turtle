@@ -5,6 +5,7 @@ import java.awt.Image;
 /**
  * This class represents an obstacle that prevents the character from moving past. 
  * @version 5/6/22
+ * @author Byron Tam
  */
 public class Obstacle extends Sprite {
 	private int obsType;

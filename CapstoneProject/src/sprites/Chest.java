@@ -4,7 +4,7 @@ import java.awt.Image;
 
 /**
  * This class represents the chests the character can interact with to answer riddles.
- * @version 5/6/22
+ * @version 5/14/22
  */
 public class Chest extends Sprite {
 	private RiddleBank riddle;

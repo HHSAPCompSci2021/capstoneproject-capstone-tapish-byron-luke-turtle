@@ -2,7 +2,8 @@ package sprites;
 
 /**
  * This class represents the riddle bank where riddles are drawn from.
- * @version 5/6/22
+ * @version 5/9/22
+ * @author Tapish Singh
  */
 public class RiddleBank {
 	private String riddle, answer, hint;

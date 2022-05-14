@@ -10,19 +10,20 @@ import processing.core.PImage;
 import sprites.*;
 /**
  * 
- * @author Luke, Tapish, Byron
- * GameScreen 
+ * @author Tapish, Byron
+ * @version 5/14/22
+ * This is the main screen where the gameplay happens. 
  */
 public class GameScreen extends Screen {
 	
-	int difficulty;
-	DrawingSurface surface;
-	PImage key;
-	Turtle player;
-	ArrayList<Obstacle> obstacles;
-	ArrayList<Enemy> enemies;
-	ArrayList<Chest> riddles;
-	private boolean pause = false;
+	private int difficulty;
+	private DrawingSurface surface;
+	private PImage key;
+	private Turtle player;
+	private ArrayList<Obstacle> obstacles;
+	private ArrayList<Enemy> enemies;
+	private ArrayList<Chest> riddles;
+	// private boolean pause = false;
 	private long start, timePaused;
 	
 	
@@ -39,14 +40,31 @@ public class GameScreen extends Screen {
 		//riddles.add(new Chest(20, 150, 50, 50));
 	}
 	
+	/**
+	 * Starts the timer
+	 */
 	public void setup() {
 		start = System.currentTimeMillis();
 	}
 	
+	/**
+	 * Method for setting the current time.
+	 * @param currentTime the current time (it's in the name!)
+	 */
+	public void setCurrentTime(long currentTime) {
+		start = currentTime;
+	}
+	
+	/*
+	 * old method no longer in use
 	public boolean getPauseStatus() {
 		return pause;
 	}
+	*/
 	
+	/**
+	 * Method for drawing things on the Game processing window/screen. Runs the timer in addition to drawing the Turtle sprite.
+	 */
 	public void draw() {
 		long elapsed = System.currentTimeMillis() - start - timePaused;
 		int min = (int) (elapsed/1000/60);

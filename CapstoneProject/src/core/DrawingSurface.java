@@ -9,6 +9,7 @@ import g4p_controls.GEvent;
 
 import java.awt.*;
 import screens.SplashScreen;
+import sprites.GameMap;
 import sprites.Turtle;
 import screens.GameScreen;
 import screens.ScreenSwitcher;
@@ -21,7 +22,7 @@ import processing.core.*;
  * 
  * @author Tapish Singh
  * This is the main class for the Processing drawing utlility
- * @version 5/6/22
+ * @version 5/14/22
  */
 public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	/*
@@ -38,9 +39,11 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	// need this for G4P stuff
 	private SplashScreen buttonVar;
 	
-	// CHANGE THIS TO MAP CLASS AND UPDATE CODE BYRON!
-	private GameScreen diffVar;
-	// no args const.
+	
+	private GameMap diffVar = new GameMap(true);
+	private GameScreen timerVar;
+	
+	
 	/**
 	 * No args constructor for DrawingSurface object
 	 * Initializes all of the screens and adds them to the array of screens. Inspired by screen switching mechanism in physicsDemoAP
@@ -62,7 +65,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		
 		activeScreen = screens.get(0);
 		buttonVar = screen1;
-		diffVar = screen2;
+		timerVar = screen2;
 	}
 
 	/**
@@ -74,8 +77,6 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		
 		
 		activeScreen = screens.get(i);
-		
-		
 		
 	}
 	
@@ -108,10 +109,24 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		pop();
 	}
 	
+	/**
+	 * Method for handling selection of options in difficulty drop down menu on splash screen. Sends selection result of dropdown menu to GameMap class to set difficulty.
+	 * @param list The dropdown list
+	 * @param event The specific interaction with the drop down list
+	 */
 	public void handleDropListEvents(GDropList list, GEvent event) {
 		System.out.println("Item selected:" + list.getSelectedText());
+		if(list.getSelectedText().equals("Easy")) 
+			diffVar.setMapDiff(true);
+		if(list.getSelectedText().equals("Hard"))
+			diffVar.setMapDiff(false);
 	}
 	
+	/**
+	 * Method for handling clicking of buttons on the splash screen.\nClicking the Controls button will bring up a pop up window, while clicking the Play button will start the game.
+	 * @param button The specific button in question
+	 * @param event The specific interaction with said button
+	 */
 	public void handleButtonEvents(GButton button, GEvent event) {
 		if(button == buttonVar.getControlB() && event == GEvent.CLICKED) {
 			JOptionPane.showMessageDialog(null, "CONTROLS:\n" + "- Use the arrow keys to move the sprite\n"
@@ -126,6 +141,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 			buttonVar.setButtonVis(false);
 			buttonVar.setMenuVis(false);
 			switchScreen(1);
+			timerVar.setCurrentTime(System.currentTimeMillis());
 		}
 	}
 	
@@ -148,6 +164,11 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 			keyInputs.remove(new Integer(keyCode));
 	}
 	
+	/**
+	 * Method for checking whether a key is still pressed
+	 * @param code the code of the key pressed
+	 * @return Whether or not the key is still pressed
+	 */
 	public boolean isPressed(Integer code) {
 		return keyInputs.contains(code);
 	}

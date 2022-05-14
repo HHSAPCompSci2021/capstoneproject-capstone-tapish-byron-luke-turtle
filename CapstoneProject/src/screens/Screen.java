@@ -1,8 +1,9 @@
 package screens;
 /**
  * 
- * @author Luke, Tapish, Byron
- * Screen
+ * @author Tapish Singh
+ * @version 5/10/22
+ * Superclass for all of the three screens.
  */
 public abstract class Screen {
 	int width, height;

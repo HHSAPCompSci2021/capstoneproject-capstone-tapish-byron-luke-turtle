@@ -6,8 +6,9 @@ import core.DrawingSurface;
 import processing.core.PImage;
 /**
  * 
- * @author Luke, Tapish, Byron
- * this is the finishscreen
+ * @author Tapish Singh
+ * @version 5/13/22
+ * This is the screen that is displayed upon game completion.
  */
 public class FinishScreen extends Screen {
 
@@ -23,11 +24,17 @@ public class FinishScreen extends Screen {
 		this.surface = surface;
 	}
 	
+	/**
+	 * Loads images of beach and turtle into Processing utility
+	 */
 	public void setup() {
 		beach = surface.loadImage("img/beach.jpg");
 		turt = surface.loadImage("img/turtleVictory.gif");
 	}
 	
+	/**
+	 * Displays images called in setup() in Processing window
+	 */
 	public void draw() {
 		surface.background(0, 0, 255);
 		surface.image(beach, 0, 0, 900, 700);
