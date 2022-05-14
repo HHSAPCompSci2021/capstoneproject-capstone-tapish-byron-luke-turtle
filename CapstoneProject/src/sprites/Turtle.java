@@ -23,7 +23,7 @@ public class Turtle extends Sprite {
 	 * @param facingDir the initial direction the sprite faces when spawned
 	 */
 	public Turtle(int x, int y, int width, int height, int faceDir) {
-		super("src/sprites/turtle.png", x, y, width, height, faceDir);
+		super("img/turtle.png", x, y, width, height, faceDir);
 	}
 	
 	/**
