@@ -126,6 +126,10 @@ public abstract class Sprite {
 		return facingDirection;
 	}
 	
+	public void setImage(String img) {
+		image = (new ImageIcon(img)).getImage();
+		pimage = new PImage(image);
+	}
 	/**
 	 * returns the width of the sprite
 	 * @return the width of the sprite

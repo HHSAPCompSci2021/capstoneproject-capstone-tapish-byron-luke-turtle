@@ -23,7 +23,7 @@ public class Turtle extends Sprite {
 	 * @param facingDir the initial direction the sprite faces when spawned
 	 */
 	public Turtle(int x, int y, int width, int height, int faceDir) {
-		super("img/turtle.png", x, y, width, height, faceDir);
+		super("img/turtleLeft.png", x, y, width, height, faceDir);
 	}
 	
 	/**
@@ -31,11 +31,17 @@ public class Turtle extends Sprite {
 	 * @param dir the direction it moves in (up: 0, right: 1, down: 2, left: 3)
 	 */
 	public void walk(int dir) {
-		int speed = 4;
+		int speed = 5;
 		if(dir == 0) setY(getY() - speed);
-		if(dir == 1) setX(getX() + speed);
+		if(dir == 1) {
+			setX(getX() + speed);
+			setImage("img/turtleRight.png");
+		}
 		if(dir == 2) setY(getY() + speed);
-		if(dir == 3) setX(getX() - speed);
+		if(dir == 3) {
+			setX(getX() - speed);
+			setImage("img/turtleLeft.png");
+		}
 	}
 
 	/**

@@ -16,19 +16,14 @@ public class Obstacle extends Sprite {
 	 * @param y the y-coordinate of the obstacle
 	 * @param obsType the type of obstacle(lethal: 0, non-lethal: 1)
 	 */
-	public Obstacle(int x, int y, int width, int height) {
-		super("img/brick.jpg", x, y, width, height, 2);
+	public Obstacle(int x, int y, int width, int height, int obsType) {
+		super("img/brick.png", x, y, width, height, 2);
 		this.obsType = obsType;
+		if(obsType == 0) {
+			setImage("img/spike.png");
+		}
 	}
 	
-	/**
-	 * Randomly places obstacles around the map
-	 */
-	public void decideSpawnPoint() {
-		int pointX = (int)Math.random()*10;
-		int pointY = (int)Math.random()*10;
-		Obstacle obs = new Obstacle(pointX, pointY, 2, 2);
-	}
 	
 	/**
 	 * Gets the obstacle type(lethal or non-lethal)
