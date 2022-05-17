@@ -34,7 +34,7 @@ public class GameScreen extends Screen {
 	public GameScreen(DrawingSurface surface) {
 		super(900, 700);
 		this.surface = surface;
-		player = new Turtle(100, 100, 100, 75, 1);
+		player = new Turtle(100, 100, 60, 75, 1);
 		//obstacles.add(new Obstacle(200, 200, 20, 20));
 		//enemies.add(new Enemy(150, 20, 50, 50, true));
 		//riddles.add(new Chest(20, 150, 50, 50));
