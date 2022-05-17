@@ -41,7 +41,19 @@ public class Turtle extends Sprite {
 	/**
 	 * Checks if the turtle can move and if not it stays in place.
 	 */
-	public void act() {
+	public boolean canMove() {
+		return true;
+		
+	}
+	public void act() { 
+		if (canMove() == true){
+			walk(numKeys);
+			
+		}
+		
+		else {
+			
+		}
 		
 	}
 }
