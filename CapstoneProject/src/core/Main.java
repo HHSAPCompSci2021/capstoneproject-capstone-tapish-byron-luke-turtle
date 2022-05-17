@@ -1,8 +1,5 @@
 package core;
 
-// import java.awt.Dimension;
-
-
 
 /*
  * COMMAND FOR JAVADOCS (copy and paste safe) - go to PROJECT directory
