@@ -100,8 +100,10 @@ public class GameScreen extends Screen {
 		surface.textSize(30);
 		surface.text(min+":"+sec+":"+rem, 5, 30);
 		if(surface.isPressed(KeyEvent.VK_ESCAPE)) {
-			int answer = JOptionPane.showConfirmDialog(null, "Resume game?");
+			long temp;
+			int answer = JOptionPane.showConfirmDialog(null, "Resume game?\n(hint: clicking the No or Cancel options won't do anything)");
 			if(answer == JOptionPane.YES_OPTION) {
+				
 			}
 		}
 		if(surface.isPressed(KeyEvent.VK_UP)) {
