@@ -115,7 +115,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 * @param event The specific interaction with the drop down list
 	 */
 	public void handleDropListEvents(GDropList list, GEvent event) {
-		System.out.println("Item selected:" + list.getSelectedText());
+		System.out.println("DIFFICULTY SET TO: " + list.getSelectedText());
 		if(list.getSelectedText().equals("Easy")) 
 			diffVar.setMapDiff(true);
 		if(list.getSelectedText().equals("Hard"))

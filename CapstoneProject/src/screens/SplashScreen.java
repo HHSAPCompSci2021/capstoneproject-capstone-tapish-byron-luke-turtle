@@ -15,6 +15,7 @@ public class SplashScreen extends Screen {
 	DrawingSurface surface;
 	private GDropList diff;
 	public GButton controls, startGame;
+	private PImage splash;
 	
 	/**
 	 * Creates a splash screen with preset dimensions. 
@@ -45,16 +46,18 @@ public class SplashScreen extends Screen {
 	 * Sets up the splash screen. Instatiates the GButton objects in addition to the GDropList.
 	 */
 	public void setup() {
-		G4P.setInputFont("Times New Roman", G4P.PLAIN, 14); // New for G4P V4.3
-		G4P.setGlobalColorScheme(GCScheme.PURPLE_SCHEME);
+		splash = surface.loadImage("img/SplashScreenImg.PNG");
+		G4P.setInputFont("Poor Richard", G4P.PLAIN, 14); // New for G4P V4.3
+		G4P.setDisplayFont("Poor Richard", G4P.PLAIN, 35);
+		G4P.setGlobalColorScheme(GCScheme.GREEN_SCHEME);
 		// Some start text
 		  
-		diff = new GDropList(surface, 400, 300, 100, 100, 0);
+		diff = new GDropList(surface, 385, 175, 130, 200, 0);
 		  
 		diff.setItems(new String[] {"Easy", "Hard"}, 0);
 
-		controls = new GButton(surface, 350, 200, 200, 60, "Controls");
-		startGame = new GButton(surface, 350, 350, 200, 60, "Play");
+		controls = new GButton(surface, 100, 150, 250, 100, "Controls");
+		startGame = new GButton(surface, 550, 150, 250, 100, "Play");
 	}
 	
 	/**
@@ -80,6 +83,7 @@ public class SplashScreen extends Screen {
 	 */
 	public void draw() {
 		surface.background(255, 200, 200);
+		surface.image(splash, 0, 0, 900, 700);
 		
 	}
 	
