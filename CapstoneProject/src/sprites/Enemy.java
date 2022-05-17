@@ -32,6 +32,9 @@ public class Enemy extends Sprite{
 		if (direction) {
 			setY(getY() + speed);
 		}
+		else if(super.getX() == 0) {
+			setX(-getX());
+		}
 		else {
 			setX(getX() + speed);
 		}
