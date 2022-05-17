@@ -23,6 +23,7 @@ public abstract class Sprite {
 
 	private int x, y, width, height;
 	private int facingDirection;
+	private PImage pimage;
 	private Image image;
 	
 	public final static int FACE_RIGHT = 0;
@@ -37,6 +38,7 @@ public abstract class Sprite {
 	 */
 	public Sprite(String img, int x, int y, int width, int height, int facingDir) {
 		image = (new ImageIcon(img)).getImage();
+		pimage = new PImage(image);
 		this.x = x;
 		this.y = y;
 		this.width = width;
@@ -149,6 +151,6 @@ public abstract class Sprite {
 	 * @param height height of the image
 	 */
 	public void draw(PApplet g, int x, int y, int width, int height) {
-		g.image(new PImage(image), x, y, width, height);
+		g.image(pimage, x, y, width, height);
 	}
 }

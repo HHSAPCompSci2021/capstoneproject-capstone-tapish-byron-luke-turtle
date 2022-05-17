@@ -34,10 +34,13 @@ public class GameScreen extends Screen {
 	public GameScreen(DrawingSurface surface) {
 		super(900, 700);
 		this.surface = surface;
+		obstacles = new ArrayList<Obstacle>();
+		enemies = new ArrayList<Enemy>();
+		riddles = new ArrayList<Chest>();
 		player = new Turtle(100, 100, 60, 75, 1);
-		//obstacles.add(new Obstacle(200, 200, 20, 20));
-		//enemies.add(new Enemy(150, 20, 50, 50, true));
-		//riddles.add(new Chest(20, 150, 50, 50));
+		obstacles.add(new Obstacle(200, 200, 100, 100));
+		enemies.add(new Enemy(500, 500, 50, 50, true));
+		riddles.add(new Chest(20, 150, 100, 100));
 	}
 	
 	/**
@@ -74,7 +77,11 @@ public class GameScreen extends Screen {
 		surface.background(0, 0, 0);
 		player.applyWindowLimits(900,700);
 		player.draw(surface, player.getX(), player.getY(), player.getWidth(), player.getHeight());
-		/*
+		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
+		sprites.addAll(obstacles);
+		sprites.addAll(enemies);
+		sprites.addAll(riddles);
+		
 		for (int i = 0; i < obstacles.size(); i++) {
 			Obstacle obs = obstacles.get(i);
 			obs.draw(surface, obs.getX(), obs.getY(), obs.getWidth(), obs.getHeight());
@@ -82,12 +89,14 @@ public class GameScreen extends Screen {
 		for (int i = 0; i < enemies.size(); i++) {
 			Enemy enemy = enemies.get(i);
 			enemy.draw(surface, enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHeight());
+			enemy.move(sprites);
 		}
 		for (int i = 0; i < riddles.size(); i++) {
 			Chest rid = riddles.get(i);
 			rid.draw(surface, rid.getX(), rid.getY(), rid.getWidth(), rid.getHeight());
 		}
-		*/
+		
+		
 		surface.textSize(30);
 		surface.text(min+":"+sec+":"+rem, 5, 30);
 		if(surface.isPressed(KeyEvent.VK_ESCAPE)) {
