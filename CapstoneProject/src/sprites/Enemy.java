@@ -19,7 +19,7 @@ public class Enemy extends Sprite{
 	 */
 
 	public Enemy(int x, int y, int width, int height, boolean direction) {
-		super("img/krab.png", x, y, width, height, 1);
+		super("img/krab.png", x, y, width, height);
 		this.direction = direction; 
 		speed = 3;
 	}
@@ -40,7 +40,7 @@ public class Enemy extends Sprite{
 		}
 		for (Sprite sprite : sprites) {
 			if (sprite != this) {
-				if(doesSpritePixelsCollide(sprite)|| getX() <= 0 || getY() <= 0 || getX()+getWidth() >=  900 || getY()+getHeight() >= 700) {
+				if(doesRectangleSpriteCollide(sprite)|| getX() <= 0 || getY() <= 0 || getX()+getWidth() >=  900 || getY()+getHeight() >= 700) {
 					applyWindowLimits(900, 700);
 					speed *= -1;
 					if (direction) {

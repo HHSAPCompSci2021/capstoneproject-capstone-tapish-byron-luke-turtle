@@ -37,10 +37,12 @@ public class GameScreen extends Screen {
 		obstacles = new ArrayList<Obstacle>();
 		enemies = new ArrayList<Enemy>();
 		riddles = new ArrayList<Chest>();
-		player = new Turtle(100, 100, 60, 75, 1);
-		obstacles.add(new Obstacle(200, 200, 50, 50, 0));
+		player = new Turtle(250, 200, 60, 75);
+		obstacles.add(new Obstacle(600, 450, 50, 50, 0));
 		enemies.add(new Enemy(500, 500, 50, 50, true));
-		riddles.add(new Chest(20, 150, 100, 100));
+		enemies.add(new Enemy(700, 200, 50, 50, false));
+		obstacles.add(new Obstacle(500, 200, 50, 50, 1));
+		riddles.add(new Chest(700, 550, 100, 100));
 	}
 	
 	/**
@@ -107,16 +109,16 @@ public class GameScreen extends Screen {
 			}
 		}
 		if(surface.isPressed(KeyEvent.VK_UP)) {
-			player.walk(0);
+			player.walk(0, sprites);
 		}
 		if(surface.isPressed(KeyEvent.VK_DOWN)) {
-			player.walk(2);
+			player.walk(2, sprites);
 		}
 		if(surface.isPressed(KeyEvent.VK_LEFT)) {
-			player.walk(3);
+			player.walk(3, sprites);
 		}
 		if(surface.isPressed(KeyEvent.VK_RIGHT)) {
-			player.walk(1);
+			player.walk(1, sprites);
 		}
 
 		if(surface.isPressed(KeyEvent.VK_3)) {

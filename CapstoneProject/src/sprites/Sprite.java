@@ -17,63 +17,44 @@ import processing.core.PImage;
 /**
  * This class represents a default sprite.
  * @version 5/6/22
- * @author Byron Tam, Tapish Singh
+ * @author Byron Tam, Tapish Singh(Mr. Shelby's collision method)
  */
 public abstract class Sprite {
 
 	private int x, y, width, height;
-	private int facingDirection;
 	private PImage pimage;
 	private Image image;
-	
-	public final static int FACE_RIGHT = 0;
-	public final static int FACE_LEFT = 1;
-	public final static int NOTAPPLICABLE = 2;
 	
 	/**
 	 * This creates a sprite at a specified place in the coordinate grid and places it facing a certain direction.
 	 * @param x the x-coordinate of the sprite
 	 * @param y the y-coordinate of the sprite
-	 * @param facingDir the initial direction the sprite faces when spawned
 	 */
-	public Sprite(String img, int x, int y, int width, int height, int facingDir) {
+	public Sprite(String img, int x, int y, int width, int height) {
 		image = (new ImageIcon(img)).getImage();
 		pimage = new PImage(image);
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		facingDirection = facingDir;
 	}
+	
 	
 	/**
 	 * Method for determining whether two sprites are colliding
 	 * @param other the other sprite you want to check collision with
 	 * @return boolean variable for whether or not they are colliding
 	 */
-	public boolean doesSpritePixelsCollide(Sprite other) {
-		BufferedImage pic = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB); // Make a new image that I can draw on
-		Graphics g = pic.getGraphics(); // This Graphics will draw on to the image
-		g.setColor(Color.WHITE); 
-		g.fillRect(0, 0, pic.getWidth(), pic.getHeight()); // Make the whole image white
-		g.drawImage(image,0,0,width,height,null);
+	public boolean doesRectangleSpriteCollide(Sprite other) {
+		Rectangle r1 = new Rectangle(x,y,width,height);  // Turn both sprites in to Rectangles (java library class)
+		Rectangle r2 = new Rectangle(other.x,other.y,other.width,other.height);
 		
-		int overlapLeft = Math.max(x, other.x); // Find the rectangle of space in which the 2 sprite images overlap with each other
-		int overlapTop = Math.max(y, other.y);
-		int overlapRight = Math.min(other.width+other.x+10, width+x+10);
-		int overlapBottom = Math.min(height+y, other.height+other.y);
-		
-		for (int i = overlapLeft; i < overlapRight; i++ ) {   // Look at every pixel coordinate in the rectangle
-			for (int j = overlapTop; j < overlapBottom; j++ ) {
-				if (pic.getRGB(i-x, j-y) != Color.WHITE.getRGB()) {  // If that pixel is not white (you can also look for a specific color instead of any non-white pixel)
-					return true;  // There was a collision!
-				}
-			}  
+		if (r1.intersects(r2)) { // Check if they intersect
+			return true;
+		} else {
+			return false;
 		}
-		
-		return false;
 	}
-	
 	/**
 	 * Method for setting window limits for movement
 	 * @param windowWidth max width sprite can move to
@@ -116,14 +97,6 @@ public abstract class Sprite {
 	 */
 	public void setY(int y) {
 		 this.y = y;
-	}
-	 
-	/**
-	 * returns the direction the sprite is facing
-	 * @return the direction the sprite is facing
-	 */
-	public int getDirection() {
-		return facingDirection;
 	}
 	
 	public void setImage(String img) {

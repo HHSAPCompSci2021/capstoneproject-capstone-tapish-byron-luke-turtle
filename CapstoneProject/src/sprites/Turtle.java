@@ -1,6 +1,7 @@
 package sprites;
 
 import java.awt.Image;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
@@ -22,16 +23,23 @@ public class Turtle extends Sprite {
 	 * @param y the y-coordinate of the sprite
 	 * @param facingDir the initial direction the sprite faces when spawned
 	 */
-	public Turtle(int x, int y, int width, int height, int faceDir) {
-		super("img/turtleLeft.png", x, y, width, height, faceDir);
+	public Turtle(int x, int y, int width, int height) {
+		super("img/turtleLeft.png", x, y, width, height);
 	}
 	
 	/**
 	 * This moves the turtle in the specified direction
 	 * @param dir the direction it moves in (up: 0, right: 1, down: 2, left: 3)
 	 */
-	public void walk(int dir) {
+	public void walk(int dir, ArrayList<Sprite> sprites) {
 		int speed = 5;
+		for (Sprite sprite : sprites) {
+			if (sprite != this) {
+				if(doesRectangleSpriteCollide(sprite)) {
+					speed = 0;
+				}
+			}
+		}
 		if(dir == 0) setY(getY() - speed);
 		if(dir == 1) {
 			setX(getX() + speed);
@@ -42,24 +50,5 @@ public class Turtle extends Sprite {
 			setX(getX() - speed);
 			setImage("img/turtleLeft.png");
 		}
-	}
-
-	/**
-	 * Checks if the turtle can move and if not it stays in place.
-	 */
-	public boolean canMove() {
-		return true;
-		
-	}
-	public void act() { 
-		if (canMove() == true){
-			walk(numKeys);
-			
-		}
-		
-		else {
-			
-		}
-		
 	}
 }
