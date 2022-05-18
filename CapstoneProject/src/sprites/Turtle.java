@@ -33,20 +33,35 @@ public class Turtle extends Sprite {
 	 */
 	public void walk(int dir, ArrayList<Sprite> sprites) {
 		int speed = 5;
+		boolean blockedRight = false;
+		boolean blockedLeft = false;
+		boolean blockedUp = false;
+		boolean blockedDown = false;
 		for (Sprite sprite : sprites) {
 			if (sprite != this) {
 				if(doesRectangleSpriteCollide(sprite)) {
-					speed = 0;
+					if(sprite.getX() > getX()) {
+						blockedRight = true;
+					}
+					if(sprite.getX() < getX()) {
+						blockedLeft = true;
+					}
+					if(sprite.getY() > getY()) {
+						blockedDown = true;
+					}
+					if(sprite.getY() > getY()) {
+						blockedUp = true;
+					}
 				}
 			}
 		}
-		if(dir == 0) setY(getY() - speed);
-		if(dir == 1) {
+		if(dir == 0 && !blockedUp) setY(getY() - speed);
+		if(dir == 1 && !blockedRight) {
 			setX(getX() + speed);
 			setImage("img/turtleRight.png");
 		}
-		if(dir == 2) setY(getY() + speed);
-		if(dir == 3) {
+		if(dir == 2 && !blockedDown) setY(getY() + speed);
+		if(dir == 3 && !blockedLeft) {
 			setX(getX() - speed);
 			setImage("img/turtleLeft.png");
 		}
