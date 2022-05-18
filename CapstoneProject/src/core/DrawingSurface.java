@@ -150,8 +150,13 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 */
 	public void keyPressed() {
 		keyInputs.add(keyCode);
-		if(key == ESC) 
+		if(key == ESC) {
 			key = 0;
+			
+			if(activeScreen == screens.get(1)) {
+				activeScreen.keyPressed();
+			}
+		}
 		
 	}
 	

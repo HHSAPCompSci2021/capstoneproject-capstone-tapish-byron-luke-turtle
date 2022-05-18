@@ -23,7 +23,7 @@ public class GameScreen extends Screen {
 	private ArrayList<Obstacle> obstacles;
 	private ArrayList<Enemy> enemies;
 	private ArrayList<Chest> riddles;
-	// private boolean pause = false;
+	private boolean pause;
 	private long start, timePaused;
 	
 	
@@ -71,10 +71,18 @@ public class GameScreen extends Screen {
 	 * Method for drawing things on the Game processing window/screen. Runs the timer in addition to drawing the Turtle sprite.
 	 */
 	public void draw() {
+
 		long elapsed = System.currentTimeMillis() - start - timePaused;
 		int min = (int) (elapsed/1000/60);
 		int sec = (int) ((elapsed/1000)%60);
 		int rem = (int) (elapsed%1000);
+		
+	/*	if(pause = true) {
+			min = tempMin;
+			sec = tempSec;
+			rem = tempRem;
+		}	*/
+		
 		
 		surface.background(0, 0, 0);
 		player.applyWindowLimits(900,700);
@@ -101,21 +109,27 @@ public class GameScreen extends Screen {
 		
 		surface.textSize(30);
 		surface.text(min+":"+sec+":"+rem, 5, 30);
-		if(surface.isPressed(KeyEvent.VK_ESCAPE)) {
+		
+		
+	/*	
+	 * 
+	 * note to self: don't put this in draw method.
+	 * if(surface.isPressed(KeyEvent.VK_ESCAPE)) {
 			int minTemp = min;
 			int secTemp = sec;
 			int remTemp = rem;
 			Object[] options = {"Yes"};
 			int answer = JOptionPane.showOptionDialog(null, "Resume game?", "The game is paused", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 			if(answer == JOptionPane.YES_OPTION) {
-				
-			}
-			if(answer == JOptionPane.CANCEL_OPTION || answer == JOptionPane.NO_OPTION) {
 				min = minTemp;
 				sec = secTemp;
 				rem = remTemp;
 			}
 		}
+		*/
+		
+		
+		
 		if(surface.isPressed(KeyEvent.VK_UP)) {
 			player.walk(0, sprites);
 		}
@@ -131,6 +145,23 @@ public class GameScreen extends Screen {
 
 		if(surface.isPressed(KeyEvent.VK_3)) {
 			surface.switchScreen(ScreenSwitcher.VICTORY_S);
+		}
+		
+		if(player.keyGoalReached() == true) {
+			surface.switchScreen(ScreenSwitcher.VICTORY_S);
+		}
+	}
+	
+	public void keyPressed() {
+		if(surface.isPressed(KeyEvent.VK_ESCAPE)) {
+			long pauseStart = System.currentTimeMillis();
+			pause = true;
+			Object[] options = {"Yes"};
+			int answer = JOptionPane.showOptionDialog(null, "Resume game?", "The game is paused", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+			if(answer == JOptionPane.YES_OPTION) {
+				long pauseEnd = System.currentTimeMillis();
+				timePaused += (pauseEnd - pauseStart);
+			}	
 		}
 	}
 }

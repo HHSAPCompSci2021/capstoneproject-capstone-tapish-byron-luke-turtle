@@ -10,21 +10,27 @@ import javax.swing.ImageIcon;
  * @version 5/6/22
  */
 public class Turtle extends Sprite {
-	private int numKeys, secsPassed, score;
+	private int numKeys, score;
 	
 	/* SET THIS VARIABLE TO TRUE WHEN THE TURTLE GETS ENOUGH KEYS TO WIN
 	 * screen switching depends on this
 	 * CHANGE THIS VARIABLE TO TRUE AS VERY LAST THING AT GAME CONCLUSION
 	 */
-	private static boolean hasEnoughKeys = false;
+	private static boolean hasEnoughKeys;
 	/**
 	 * This creates a turtle at a specified place in the coordinate grid and places it facing a certain direction.
 	 * @param x the x-coordinate of the sprite
 	 * @param y the y-coordinate of the sprite
 	 * @param facingDir the initial direction the sprite faces when spawned
 	 */
+
+	
 	public Turtle(int x, int y, int width, int height) {
 		super("img/turtleLeft.png", x, y, width, height);
+		numKeys = 0;
+		score = 0;
+		hasEnoughKeys = false;
+
 	}
 	
 	/**
@@ -66,4 +72,46 @@ public class Turtle extends Sprite {
 			setImage("img/turtleLeft.png");
 		}
 	}
+
+
+	/**
+	 * Checks if the turtle can move and if not it stays in place.
+	 */
+	public boolean canMove() {
+		return true;
+		
+	}
+	/*
+	public void act() { 
+		if (canMove() == true){
+			walk(numKeys);
+			
+		}
+		
+		else {
+			
+		}
+		
+	}
+	*/
+	
+	
+	
+	
+	public int getScore( ) {
+		return score;
+	}
+	
+	public void addToScore(int add) {
+		score += add;
+	}
+	
+	public void setScore(int sc) {
+		score = sc;
+	}
+	
+	public boolean keyGoalReached() {
+		return hasEnoughKeys;
+	}
+
 }
