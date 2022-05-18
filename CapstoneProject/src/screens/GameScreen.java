@@ -102,10 +102,18 @@ public class GameScreen extends Screen {
 		surface.textSize(30);
 		surface.text(min+":"+sec+":"+rem, 5, 30);
 		if(surface.isPressed(KeyEvent.VK_ESCAPE)) {
-			long temp;
-			int answer = JOptionPane.showConfirmDialog(null, "Resume game?\n(hint: clicking the No or Cancel options won't do anything)");
+			int minTemp = min;
+			int secTemp = sec;
+			int remTemp = rem;
+			Object[] options = {"Yes"};
+			int answer = JOptionPane.showOptionDialog(null, "Resume game?", "The game is paused", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 			if(answer == JOptionPane.YES_OPTION) {
 				
+			}
+			if(answer == JOptionPane.CANCEL_OPTION || answer == JOptionPane.NO_OPTION) {
+				min = minTemp;
+				sec = secTemp;
+				rem = remTemp;
 			}
 		}
 		if(surface.isPressed(KeyEvent.VK_UP)) {
