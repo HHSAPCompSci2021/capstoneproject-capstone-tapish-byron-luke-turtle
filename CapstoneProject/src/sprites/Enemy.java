@@ -33,27 +33,24 @@ public class Enemy extends Sprite{
 			setY(getY() + speed);
 		}
 		else if(super.getX() == 0) {
-			setX(-getX());
+			setX(-1 * getX());
 		}
 		else {
 			setX(getX() + speed);
 		}
-		for (Sprite sprite : sprites) {
-			if (sprite != this) {
-				if(doesRectangleSpriteCollide(sprite)|| getX() <= 0 || getY() <= 0 || getX()+getWidth() >=  900 || getY()+getHeight() >= 700) {
+		for (int i = 0; i < sprites.size(); i+=1) {
+			if (sprites.get(i) != this) {
+				if(doesRectangleSpriteCollide(sprites.get(i))|| getX() <= 0 ||
+						getY() <= 0 || getX()+getWidth() >= 
+						900 || getY()+getHeight() >= 700) {
 					applyWindowLimits(900, 700);
 					speed *= -1;
-					if (direction) {
-						setY(getY() + speed);
-					}
-					else {
-						setX(getX() + speed);
-					}
+					setY((direction ? getY() + speed : getY()));
+					setX((!direction ? getX() + speed : getX()));
 				}
-				
 			}
 		}
-		
+
 		
 	}
 }

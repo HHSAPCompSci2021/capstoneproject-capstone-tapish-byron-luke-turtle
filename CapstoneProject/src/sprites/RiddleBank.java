@@ -1,4 +1,5 @@
 package sprites;
+import java.util.*;
 
 /**
  * This class represents the riddle bank where riddles are drawn from.
@@ -7,8 +8,8 @@ package sprites;
  */
 public class RiddleBank {
 	private String riddle, answer, hint;
-	
-	/**
+	private ArrayList<Trio<String, String, String>> riddleList = new ArrayList<>();
+	/**s
 	 * Returns the contents of the riddle field in the form of a String
 	 * @return String the riddle in question
 	 */
@@ -38,6 +39,7 @@ public class RiddleBank {
 	 * @param riddleNum the number for the riddle chosen(riddles are numbered)
 	 */
 	public RiddleBank(int riddleNum) {
+		// why not just use an arrayList of tuples?
 		if(riddleNum == 0) {
 			riddle = "What is always in front of you but can't be seen?";
 			answer = "future";
@@ -141,8 +143,20 @@ public class RiddleBank {
 			hint = "how exactly did you get this riddle? call range is from 0-15";
 		}
 		
-		
+	
 	}
+	static class Trio <S1, S2, S3> {
+		S1 first;
+		S2 second;
+		S3 third;
+
+		public Trio(S1 first_value, S2 second_value, S3 third_value) {
+			first = first_value;
+			second = second_value;
+			third = third_value;
+		}
+	}
+	
 }
 
 

@@ -46,14 +46,7 @@ public abstract class Sprite {
 	 * @return boolean variable for whether or not they are colliding
 	 */
 	public boolean doesRectangleSpriteCollide(Sprite other) {
-		Rectangle r1 = new Rectangle(x,y,width,height);  // Turn both sprites in to Rectangles (java library class)
-		Rectangle r2 = new Rectangle(other.x,other.y,other.width,other.height);
-		
-		if (r1.intersects(r2)) { // Check if they intersect
-			return true;
-		} else {
-			return false;
-		}
+		return (new Rectangle(x,y,width,height)).intersects(new Rectangle(other.x,other.y,other.width,other.height));
 	}
 	/**
 	 * Method for setting window limits for movement
