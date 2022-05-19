@@ -55,7 +55,7 @@ public class Turtle extends Sprite {
 					if(sprite.getY() > getY()) {
 						blockedDown = true;
 					}
-					if(sprite.getY() < getY()) {
+					if(sprite.getY() > getY()) {
 						blockedUp = true;
 					}
 				}

@@ -42,7 +42,7 @@ public class GameScreen extends Screen {
 		enemies.add(new Enemy(500, 500, 50, 50, true));
 		enemies.add(new Enemy(700, 200, 50, 50, false));
 		obstacles.add(new Obstacle(500, 200, 50, 50, 1));
-		riddles.add(new Chest(700, 550, 80, 60));
+		riddles.add(new Chest(700, 550, 100, 100));
 	}
 	
 	/**
