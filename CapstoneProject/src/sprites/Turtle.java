@@ -42,7 +42,7 @@ public class Turtle extends Sprite {
 	 * @param dir the direction it moves in (up: 0, right: 1, down: 2, left: 3)
 	 */
 	public void walk(int dir, ArrayList<Sprite> sprites) {
-		int speed = 5;
+		int speed = 7;
 		boolean blockedRight = false;
 		boolean blockedLeft = false;
 		boolean blockedUp = false;

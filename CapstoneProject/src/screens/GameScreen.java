@@ -40,7 +40,16 @@ public class GameScreen extends Screen {
 		enemies = new ArrayList<Enemy>();
 		riddles = new ArrayList<Chest>();
 		player = new Turtle(250, 200, 60, 75, surface);
-		obstacles.add(new Obstacle(600, 450, 50, 50, 0));
+		obstacles.add(new Obstacle(600, 450, 50, 50, 1));
+		obstacles.add(new Obstacle(300, 450, 50, 50, 1));
+		obstacles.add(new Obstacle(100, 450, 50, 50, 1));
+		obstacles.add(new Obstacle(200, 240, 50, 50, 1));
+		obstacles.add(new Obstacle(500, 280, 50, 50, 1));
+		obstacles.add(new Obstacle(250, 450, 50, 50, 1));
+		obstacles.add(new Obstacle(270, 450, 50, 50, 1));
+		obstacles.add(new Obstacle(600, 450, 50, 50, 1));
+		obstacles.add(new Obstacle(360, 450, 50, 50, 1));
+		obstacles.add(new Obstacle(750, 450, 50, 50, 1));
 		enemies.add(new Enemy(500, 500, 50, 50, true));
 		enemies.add(new Enemy(700, 200, 50, 50, false));
 		enemies.add(new Enemy(300, 100, 50, 50, true));

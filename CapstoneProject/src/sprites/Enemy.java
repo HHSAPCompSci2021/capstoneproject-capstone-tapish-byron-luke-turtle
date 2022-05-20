@@ -23,7 +23,7 @@ public class Enemy extends Sprite{
 	public Enemy(int x, int y, int width, int height, boolean direction) {
 		super("img/krab.png", x, y, width, height);
 		this.direction = direction; 
-		speed = 3;
+		speed = 5;
 	}
 	
 	/**
