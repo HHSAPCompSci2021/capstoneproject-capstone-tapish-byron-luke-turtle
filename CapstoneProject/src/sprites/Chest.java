@@ -20,13 +20,23 @@ public class Chest extends Sprite {
 		hasAnswered = false;
 	}
 	
-	public void ansStatus(boolean hasAns) { 
+
+	/**
+	 * sets the status of the chest, i.e. if chest has been opened, its status is changed to "true
+	 * @param hasAns the boolean status of the chest you want to set
+	 */
+	public void ansStatus(boolean hasAns) {
 		hasAnswered = hasAns;
 	}
 	
+	/**
+	 * returns the boolean status of the chest. True if it was opened, false if not
+	 * @return the answered boolean status of the chest
+	 */
 	public boolean getStatus() {
 		return hasAnswered;
 	}
+	
 	/**
 	 * Chooses a riddle out of the riddle bank
 	 * @param num the number for the riddle chosen(riddles are numbered)
@@ -36,6 +46,10 @@ public class Chest extends Sprite {
 		riddle = new RiddleBank(choose);
 	}
 	
+	/**
+	 * returns the riddle object within the chest
+	 * @return the specific riddle object of the chest
+	 */
 	public RiddleBank returnRiddle() {
 		return riddle;
 	}

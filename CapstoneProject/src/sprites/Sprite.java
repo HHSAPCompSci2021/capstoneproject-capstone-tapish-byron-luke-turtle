@@ -92,10 +92,15 @@ public abstract class Sprite {
 		 this.y = y;
 	}
 	
+	/**
+	 * Superclass method for setting the image of the sprite in question to be eventually loaded in the processing window
+	 * @param img the image you would like the sprite to be represented by
+	 */
 	public void setImage(String img) {
 		image = (new ImageIcon(img)).getImage();
 		pimage = new PImage(image);
 	}
+	
 	/**
 	 * returns the width of the sprite
 	 * @return the width of the sprite

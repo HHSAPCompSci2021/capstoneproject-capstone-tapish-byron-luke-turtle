@@ -7,7 +7,7 @@ import processing.core.PImage;
 /**
  * 
  * @author Luke Yang
- * @version 5/13/22
+ * @version 5/20/22
  * This is the screen that is displayed upon game over.
  */
 public class GameOverScreen extends Screen {
