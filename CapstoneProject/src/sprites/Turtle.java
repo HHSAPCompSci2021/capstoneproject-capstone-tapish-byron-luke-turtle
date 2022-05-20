@@ -1,16 +1,21 @@
 package sprites;
 
-import java.awt.Image;
 import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
+import core.DrawingSurface;
+import screens.ScreenSwitcher;
 
 /**
  * This class represents the main character which is controlled by the player using arrowkeys.
  * @version 5/6/22
  */
 public class Turtle extends Sprite {
+<<<<<<< Updated upstream
 	private static int numKeys, score;
+=======
+	private int numKeys, score;
+	private DrawingSurface drawingSurface;
+>>>>>>> Stashed changes
 	
 	/* SET THIS VARIABLE TO TRUE WHEN THE TURTLE GETS ENOUGH KEYS TO WIN
 	 * screen switching depends on this
@@ -25,12 +30,12 @@ public class Turtle extends Sprite {
 	 */
 
 	
-	public Turtle(int x, int y, int width, int height) {
+	public Turtle(int x, int y, int width, int height, DrawingSurface drawingSurface) {
 		super("img/turtleLeft.png", x, y, width, height);
 		numKeys = 0;
 		score = 0;
 		hasEnoughKeys = false;
-
+		this.drawingSurface = drawingSurface;
 	}
 	
 	/**
@@ -46,6 +51,9 @@ public class Turtle extends Sprite {
 		for (Sprite sprite : sprites) {
 			if (sprite != this) {
 				if(doesRectangleSpriteCollide(sprite)) {
+					if (sprite instanceof Enemy) {
+						drawingSurface.switchScreen(ScreenSwitcher.GAME_OVER_S);
+					}
 					if(sprite.getX() > getX()) {
 						blockedRight = true;
 					}
@@ -71,6 +79,8 @@ public class Turtle extends Sprite {
 			setX(getX() - speed);
 			setImage("img/turtleLeft.png");
 		}
+		
+		
 	}
 
 
@@ -81,6 +91,7 @@ public class Turtle extends Sprite {
 		return true;
 		
 	}
+	
 	/*
 	public void act() { 
 		if (canMove() == true){
@@ -94,9 +105,6 @@ public class Turtle extends Sprite {
 		
 	}
 	*/
-	
-	
-	
 	
 	public int getScore( ) {
 		return score;

@@ -3,6 +3,8 @@ package sprites;
 import java.awt.Image;
 import java.util.ArrayList;
 
+import screens.Screen;
+
 /**
  * This represents an enemy that hurts the character on contact. 
  * @version 5/6/22
@@ -44,9 +46,15 @@ public class Enemy extends Sprite{
 						getY() <= 0 || getX()+getWidth() >= 
 						900 || getY()+getHeight() >= 700) {
 					applyWindowLimits(900, 700);
+					
+					speed*= -1;
+				    
+					
+					/*
 					speed *= -1;
 					setY((direction ? getY() + speed : getY()));
 					setX((!direction ? getX() + speed : getX()));
+					*/
 				}
 			}
 		}

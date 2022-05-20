@@ -1,22 +1,19 @@
 package core;
-import java.util.*;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import g4p_controls.*;
+import g4p_controls.GButton;
 import g4p_controls.GDropList;
 import g4p_controls.GEvent;
-
-import java.awt.*;
+import processing.core.PApplet;
+import screens.FinishScreen;
+import screens.GameOverScreen;
+import screens.GameScreen;
+import screens.Screen;
+import screens.ScreenSwitcher;
 import screens.SplashScreen;
 import sprites.GameMap;
-import sprites.Turtle;
-import screens.GameScreen;
-import screens.ScreenSwitcher;
-import screens.FinishScreen;
-import screens.Screen;
-
-import processing.core.*;
 
 /**
  * 
@@ -58,10 +55,12 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		SplashScreen screen1 = new SplashScreen(this);
 		GameScreen screen2 = new GameScreen(this);
 		FinishScreen screen3 = new FinishScreen(this);
+		GameOverScreen screen4 = new GameOverScreen(this);
 		
 		screens.add(screen1);
 		screens.add(screen2);
 		screens.add(screen3);
+		screens.add(screen4);
 		
 		activeScreen = screens.get(0);
 		buttonVar = screen1;
