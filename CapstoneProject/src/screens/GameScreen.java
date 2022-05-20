@@ -3,6 +3,7 @@ package screens;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 import core.DrawingSurface;
@@ -18,12 +19,12 @@ public class GameScreen extends Screen {
 	
 	private int difficulty;
 	private DrawingSurface surface;
-	private PImage key;
+	private int numKeys;
+	private boolean gameOver;
 	private Turtle player;
 	private ArrayList<Obstacle> obstacles;
 	private ArrayList<Enemy> enemies;
 	private ArrayList<Chest> riddles;
-	private boolean pause;
 	private long start, timePaused;
 	
 	
@@ -60,12 +61,6 @@ public class GameScreen extends Screen {
 		start = currentTime;
 	}
 	
-	/*
-	 * old method no longer in use
-	public boolean getPauseStatus() {
-		return pause;
-	}
-	*/
 	
 	/**
 	 * Method for drawing things on the Game processing window/screen. Runs the timer in addition to drawing the Turtle sprite.
@@ -75,18 +70,12 @@ public class GameScreen extends Screen {
 		long elapsed = System.currentTimeMillis() - start - timePaused;
 		int min = (int) (elapsed/1000/60);
 		int sec = (int) ((elapsed/1000)%60);
-		int rem = (int) (elapsed%1000);
-		
-	/*	if(pause = true) {
-			min = tempMin;
-			sec = tempSec;
-			rem = tempRem;
-		}	*/
-		
-		
+		int rem = (int) (elapsed%1000);	
 		surface.background(0, 0, 0);
 		player.applyWindowLimits(900,700);
+		if(!gameOver) {
 		player.draw(surface, player.getX(), player.getY(), player.getWidth(), player.getHeight());
+		}
 		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 		sprites.addAll(obstacles);
 		sprites.addAll(enemies);
@@ -106,30 +95,32 @@ public class GameScreen extends Screen {
 			rid.draw(surface, rid.getX(), rid.getY(), rid.getWidth(), rid.getHeight());
 		}
 		
-		
+		if(player.getX() < 100) {
+			surface.image(new PImage(new ImageIcon("img/ArrowLeft.png").getImage()), 20, 350, 40, 40);
+		}
+		if(player.getY() < 100) {
+			surface.image(new PImage(new ImageIcon("img/ArrowUp.png").getImage()), 450, 20, 40, 40);
+		}
+		if(player.getY() > 500) {
+			surface.image(new PImage(new ImageIcon("img/ArrowDown.png").getImage()), 450, 640, 40, 40);
+		}
+		if(player.getX() > 700) {
+			surface.image(new PImage(new ImageIcon("img/ArrowRight.png").getImage()), 840, 350, 40, 40);
+		}
 		surface.textSize(30);
 		surface.text(min+":"+sec+":"+rem, 5, 30);
-		
-		
-	/*	
-	 * 
-	 * note to self: don't put this in draw method.
-	 * if(surface.isPressed(KeyEvent.VK_ESCAPE)) {
-			int minTemp = min;
-			int secTemp = sec;
-			int remTemp = rem;
-			Object[] options = {"Yes"};
-			int answer = JOptionPane.showOptionDialog(null, "Resume game?", "The game is paused", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-			if(answer == JOptionPane.YES_OPTION) {
-				min = minTemp;
-				sec = secTemp;
-				rem = remTemp;
+		surface.image(new PImage(new ImageIcon("img/key.png").getImage()), 760, 20, 40, 40);
+		surface.image(new PImage(new ImageIcon("img/x.png").getImage()), 810, 30, 20, 20);
+		surface.text(""+numKeys, 845, 50);
+
+		if (surface.isPressed(KeyEvent.VK_SPACE)) {
+			for (int i = 0; i < riddles.size(); i++) {
+				Chest rid = riddles.get(i);
+				if (player.doesRectangleSpriteCollide(rid)) {
+					//place where riddle pops up
+				}
 			}
 		}
-		*/
-		
-		
-		
 		if(surface.isPressed(KeyEvent.VK_UP)) {
 			player.walk(0, sprites);
 		}
@@ -155,7 +146,6 @@ public class GameScreen extends Screen {
 	public void keyPressed() {
 		if(surface.isPressed(KeyEvent.VK_ESCAPE)) {
 			long pauseStart = System.currentTimeMillis();
-			pause = true;
 			Object[] options = {"Yes"};
 			int answer = JOptionPane.showOptionDialog(null, "Resume game?", "The game is paused", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 			if(answer == JOptionPane.YES_OPTION) {
