@@ -26,4 +26,8 @@ public class Chest extends Sprite {
 		int choose = (int) (Math.random()*15);
 		riddle = new RiddleBank(choose);
 	}
+	
+	public RiddleBank returnRiddle() {
+		return riddle;
+	}
 }

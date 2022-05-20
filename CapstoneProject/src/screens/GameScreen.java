@@ -67,6 +67,8 @@ public class GameScreen extends Screen {
 	 */
 	public void draw() {
 
+		numKeys = player.getScore();
+		
 		long elapsed = System.currentTimeMillis() - start - timePaused;
 		int min = (int) (elapsed/1000/60);
 		int sec = (int) ((elapsed/1000)%60);
@@ -92,6 +94,7 @@ public class GameScreen extends Screen {
 		}
 		for (int i = 0; i < riddles.size(); i++) {
 			Chest rid = riddles.get(i);
+			rid.chooseRiddle(i);
 			rid.draw(surface, rid.getX(), rid.getY(), rid.getWidth(), rid.getHeight());
 		}
 		
@@ -113,14 +116,22 @@ public class GameScreen extends Screen {
 		surface.image(new PImage(new ImageIcon("img/x.png").getImage()), 810, 30, 20, 20);
 		surface.text(""+numKeys, 845, 50);
 
+		/* this CANNOT be in draw method, as it will be called over and over again. Moved to keyPressed method.
 		if (surface.isPressed(KeyEvent.VK_SPACE)) {
 			for (int i = 0; i < riddles.size(); i++) {
 				Chest rid = riddles.get(i);
 				if (player.doesRectangleSpriteCollide(rid)) {
-					//place where riddle pops up
+					RiddleBank temp = rid.returnRiddle();
+					String riddleStr = temp.getRiddle();
+					String riddleAns = temp.getAnswer();
+					String answer = JOptionPane.showInputDialog(riddleStr);
+					if(answer == riddleAns) 
+						player.addToScore(1);
 				}
 			}
 		}
+		*/
+		
 		if(surface.isPressed(KeyEvent.VK_UP)) {
 			player.walk(0, sprites);
 		}
@@ -144,6 +155,7 @@ public class GameScreen extends Screen {
 	}
 	
 	public void keyPressed() {
+		
 		if(surface.isPressed(KeyEvent.VK_ESCAPE)) {
 			long pauseStart = System.currentTimeMillis();
 			Object[] options = {"Yes"};
@@ -153,5 +165,20 @@ public class GameScreen extends Screen {
 				timePaused += (pauseEnd - pauseStart);
 			}	
 		}
+		
+		if (surface.isPressed(KeyEvent.VK_SPACE)) {
+			for (int i = 0; i < riddles.size(); i++) {
+				Chest rid = riddles.get(i);
+				if (player.doesRectangleSpriteCollide(rid)) {
+					RiddleBank temp = rid.returnRiddle();
+					String riddleStr = temp.getRiddle();
+					String riddleAns = temp.getAnswer();
+					String answer = JOptionPane.showInputDialog(riddleStr);
+					if(answer == riddleAns) 
+						player.addToScore(1);
+				}
+			}
+		}
+		
 	}
 }
