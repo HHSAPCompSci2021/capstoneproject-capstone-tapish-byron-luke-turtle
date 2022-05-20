@@ -196,6 +196,7 @@ public class GameScreen extends Screen {
 				Chest rid = riddles.get(i);
 				if (player.doesRectangleSpriteCollide(rid)) {
 					if(!rid.getStatus()) {
+						long pauseStart = System.currentTimeMillis();
 						RiddleBank temp = rid.returnRiddle();
 						String riddleStr = temp.getRiddle();
 						String riddleAns = temp.getAnswer();
@@ -204,6 +205,13 @@ public class GameScreen extends Screen {
 							//player.addToKeys(1);
 							numKeys++;
 							rid.ansStatus(true);
+							long pauseEnd = System.currentTimeMillis();
+							timePaused += (pauseEnd - pauseStart);
+						}
+						else {
+							long pauseEnd = System.currentTimeMillis();
+							timePaused += (pauseEnd - pauseStart);
+							timePaused -= 5000;
 						}
 						surface.clearKeyInputs();
 					}
