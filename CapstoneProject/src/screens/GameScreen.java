@@ -182,7 +182,7 @@ public class GameScreen extends Screen {
 						String riddleStr = temp.getRiddle();
 						String riddleAns = temp.getAnswer();
 						String answer = JOptionPane.showInputDialog(riddleStr);
-						if(answer != null && answer.equals(answer)) {
+						if(answer != null && answer.equals(riddleAns)) {
 							//player.addToKeys(1);
 							numKeys++;
 							rid.ansStatus(true);
