@@ -10,12 +10,11 @@ import screens.ScreenSwitcher;
  * @version 5/6/22
  */
 public class Turtle extends Sprite {
-<<<<<<< Updated upstream
+
 	private static int numKeys, score;
-=======
-	private int numKeys, score;
+
 	private DrawingSurface drawingSurface;
->>>>>>> Stashed changes
+
 	
 	/* SET THIS VARIABLE TO TRUE WHEN THE TURTLE GETS ENOUGH KEYS TO WIN
 	 * screen switching depends on this
