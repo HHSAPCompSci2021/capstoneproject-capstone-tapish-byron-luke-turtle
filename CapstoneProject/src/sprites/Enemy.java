@@ -46,15 +46,12 @@ public class Enemy extends Sprite{
 						getY() <= 0 || getX()+getWidth() >= 
 						900 || getY()+getHeight() >= 700) {
 					applyWindowLimits(900, 700);
-					
-					speed*= -1;
-				    
-					
-					/*
+	
+				
 					speed *= -1;
 					setY((direction ? getY() + speed : getY()));
 					setX((!direction ? getX() + speed : getX()));
-					*/
+					
 				}
 			}
 		}
