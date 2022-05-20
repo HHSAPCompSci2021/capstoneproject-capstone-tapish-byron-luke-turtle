@@ -20,7 +20,7 @@ public class Chest extends Sprite {
 		hasAnswered = false;
 	}
 	
-	public void ansStatus(boolean hasAns) {
+	public void ansStatus(boolean hasAns) { 
 		hasAnswered = hasAns;
 	}
 	
