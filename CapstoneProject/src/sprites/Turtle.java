@@ -21,14 +21,15 @@ public class Turtle extends Sprite {
 	 * CHANGE THIS VARIABLE TO TRUE AS VERY LAST THING AT GAME CONCLUSION
 	 */
 	private static boolean hasEnoughKeys;
+	
+	
+	
 	/**
 	 * This creates a turtle at a specified place in the coordinate grid and places it facing a certain direction.
 	 * @param x the x-coordinate of the sprite
 	 * @param y the y-coordinate of the sprite
 	 * @param facingDir the initial direction the sprite faces when spawned
 	 */
-
-	
 	public Turtle(int x, int y, int width, int height, DrawingSurface drawingSurface) {
 		super("img/turtleLeft.png", x, y, width, height);
 		numKeys = 0;
@@ -105,26 +106,50 @@ public class Turtle extends Sprite {
 	}
 	*/
 	
+	/**
+	 * returns the current score of the turtle
+	 * @return the current score of the turtle
+	 */
 	public int getScore( ) {
 		return score;
 	}
 	
+	/**
+	 * adds the specified value to the score
+	 * @param add the value you want to add to the score
+	 */
 	public void addToScore(int add) {
 		score += add;
 	}
 	
+	/**
+	 * adds the specified number of keys to the overall key count
+	 * @param add the number of keys you want to add
+	 */
 	public void addToKeys(int add) {
 		numKeys += add;
 	}
 	
+	/**
+	 * Returns the current total number of keys
+	 * @return the current total number of keys
+	 */
 	public int getKeysNo() {
 		return numKeys;
 	}
 	
+	/**
+	 * Sets the score to a specific value
+	 * @param sc value you want score to be set to
+	 */
 	public void setScore(int sc) {
 		score = sc;
 	}
 	
+	/**
+	 * returns the status of the player, i.e. whether or not they have reached the goal
+	 * @return the status of completion
+	 */
 	public boolean keyGoalReached() {
 		return hasEnoughKeys;
 	}

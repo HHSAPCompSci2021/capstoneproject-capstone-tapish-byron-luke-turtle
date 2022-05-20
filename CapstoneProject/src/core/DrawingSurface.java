@@ -19,7 +19,7 @@ import sprites.GameMap;
  * 
  * @author Tapish Singh
  * This is the main class for the Processing drawing utlility
- * @version 5/14/22
+ * @version 5/20/22
  */
 public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	/*
@@ -67,6 +67,10 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		timerVar = screen2;
 	}
 
+	/**
+	 * Clears all of the keys in the keyInputs arraylist.
+	 * In other words, makes processing think no keys are pressed after call
+	 */
 	public void clearKeyInputs() {
 		keyInputs = new ArrayList<Integer>();
 	}

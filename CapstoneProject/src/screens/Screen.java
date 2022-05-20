@@ -33,6 +33,9 @@ public abstract class Screen {
 		
 	}
 	
+	/**
+	 * Superclass method for detecting key presses
+	 */
 	public void keyPressed() {
 		
 	}

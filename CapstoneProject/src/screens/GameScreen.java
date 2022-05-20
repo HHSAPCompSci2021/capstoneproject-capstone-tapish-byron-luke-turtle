@@ -171,6 +171,12 @@ public class GameScreen extends Screen {
 		}
 	}
 	
+	
+	
+	/**
+	 * Method for detecting key presses.
+	 * Different from the key detection in the draw method as this is not called 60 times a second.
+	 */
 	public void keyPressed() {
 		
 		if(surface.isPressed(KeyEvent.VK_ESCAPE)) {

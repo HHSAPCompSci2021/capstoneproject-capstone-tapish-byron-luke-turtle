@@ -12,6 +12,7 @@ import screens.Screen;
 public class Enemy extends Sprite{
 	private boolean direction;
 	int speed;
+	
 	/**
 	 * This creates an enemy at a specified place in the coordinate grid and places it facing a certain direction.
 	 * @param x the x-coordinate of the enemy 
@@ -19,7 +20,6 @@ public class Enemy extends Sprite{
 	 * @param faceDir the initial direction the enemy faces when spawned
 	 * @param direction the direction the enemy moves(true: vertical, false: horizontal)
 	 */
-
 	public Enemy(int x, int y, int width, int height, boolean direction) {
 		super("img/krab.png", x, y, width, height);
 		this.direction = direction; 

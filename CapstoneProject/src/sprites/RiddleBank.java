@@ -9,7 +9,8 @@ import java.util.*;
 public class RiddleBank {
 	private String riddle, answer, hint;
 	private ArrayList<Trio<String, String, String>> riddleList = new ArrayList<>();
-	/**s
+	
+	/**
 	 * Returns the contents of the riddle field in the form of a String
 	 * @return String the riddle in question
 	 */
@@ -145,6 +146,8 @@ public class RiddleBank {
 		
 	
 	}
+	
+	
 	static class Trio <S1, S2, S3> {
 		S1 first;
 		S2 second;
