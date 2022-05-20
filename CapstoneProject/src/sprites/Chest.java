@@ -8,6 +8,7 @@ import java.awt.Image;
  */
 public class Chest extends Sprite {
 	private RiddleBank riddle;
+	boolean hasAnswered;
 	
 	/**
 	 * This creates a chest at the specified place in the coordinate grid and places it facing a certain direction.
@@ -16,8 +17,16 @@ public class Chest extends Sprite {
 	 */
 	public Chest(int x, int y, int width, int height) {
 		super("img/chest.png", x, y, width, height);
+		hasAnswered = false;
 	}
 	
+	public void ansStatus(boolean hasAns) {
+		hasAnswered = hasAns;
+	}
+	
+	public boolean getStatus() {
+		return hasAnswered;
+	}
 	/**
 	 * Chooses a riddle out of the riddle bank
 	 * @param num the number for the riddle chosen(riddles are numbered)

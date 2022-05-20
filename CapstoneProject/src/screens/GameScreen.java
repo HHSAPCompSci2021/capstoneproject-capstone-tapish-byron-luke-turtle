@@ -26,6 +26,7 @@ public class GameScreen extends Screen {
 	private ArrayList<Enemy> enemies;
 	private ArrayList<Chest> riddles;
 	private long start, timePaused;
+	private PImage backgr;
 	
 	
 	/**
@@ -44,6 +45,7 @@ public class GameScreen extends Screen {
 		enemies.add(new Enemy(700, 200, 50, 50, false));
 		obstacles.add(new Obstacle(500, 200, 50, 50, 1));
 		riddles.add(new Chest(700, 550, 80, 60));
+		numKeys = 0;
 	}
 	
 	/**
@@ -51,6 +53,7 @@ public class GameScreen extends Screen {
 	 */
 	public void setup() {
 		start = System.currentTimeMillis();
+		backgr = surface.loadImage("img/gameBackground.jpg");
 	}
 	
 	/**
@@ -67,13 +70,14 @@ public class GameScreen extends Screen {
 	 */
 	public void draw() {
 
-		numKeys = player.getScore();
+		surface.image(backgr, 0, 0, 900, 700);
+	//	numKeys = player.getScore();
 		
 		long elapsed = System.currentTimeMillis() - start - timePaused;
 		int min = (int) (elapsed/1000/60);
 		int sec = (int) ((elapsed/1000)%60);
 		int rem = (int) (elapsed%1000);	
-		surface.background(0, 0, 0);
+	//	surface.background(0, 0, 0);
 		player.applyWindowLimits(900,700);
 		if(!gameOver) {
 		player.draw(surface, player.getX(), player.getY(), player.getWidth(), player.getHeight());
@@ -114,6 +118,7 @@ public class GameScreen extends Screen {
 		surface.text(min+":"+sec+":"+rem, 5, 30);
 		surface.image(new PImage(new ImageIcon("img/key.png").getImage()), 760, 20, 40, 40);
 		surface.image(new PImage(new ImageIcon("img/x.png").getImage()), 810, 30, 20, 20);
+	//	surface.text(""+player.getKeysNo(), 845, 50);
 		surface.text(""+numKeys, 845, 50);
 
 		/* this CANNOT be in draw method, as it will be called over and over again. Moved to keyPressed method.
@@ -163,22 +168,31 @@ public class GameScreen extends Screen {
 			if(answer == JOptionPane.YES_OPTION) {
 				long pauseEnd = System.currentTimeMillis();
 				timePaused += (pauseEnd - pauseStart);
+				surface.clearKeyInputs();
 			}	
 		}
+		
 		
 		if (surface.isPressed(KeyEvent.VK_SPACE)) {
 			for (int i = 0; i < riddles.size(); i++) {
 				Chest rid = riddles.get(i);
 				if (player.doesRectangleSpriteCollide(rid)) {
-					RiddleBank temp = rid.returnRiddle();
-					String riddleStr = temp.getRiddle();
-					String riddleAns = temp.getAnswer();
-					String answer = JOptionPane.showInputDialog(riddleStr);
-					if(answer == riddleAns) 
-						player.addToScore(1);
+					if(!rid.getStatus()) {
+						RiddleBank temp = rid.returnRiddle();
+						String riddleStr = temp.getRiddle();
+						String riddleAns = temp.getAnswer();
+						String answer = JOptionPane.showInputDialog(riddleStr);
+						if(answer != null && answer.equals(answer)) {
+							//player.addToKeys(1);
+							numKeys++;
+							rid.ansStatus(true);
+						}
+						surface.clearKeyInputs();
+					}
 				}
 			}
 		}
+		
 		
 	}
 }

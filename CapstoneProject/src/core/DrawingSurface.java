@@ -68,6 +68,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		timerVar = screen2;
 	}
 
+	public void clearKeyInputs() {
+		keyInputs = new ArrayList<Integer>();
+	}
 	/**
 	 * Switches to a different screen based on parameter passed through
 	 * @param i the screen number you want to switch to
@@ -152,10 +155,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		keyInputs.add(keyCode);
 		if(key == ESC) {
 			key = 0;
-			
-			if(activeScreen == screens.get(1)) {
-				activeScreen.keyPressed();
-			}
+		}
+		if(activeScreen == screens.get(1)) {
+			activeScreen.keyPressed();
 		}
 		
 	}

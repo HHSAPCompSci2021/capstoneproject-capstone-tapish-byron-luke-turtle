@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
  * @version 5/6/22
  */
 public class Turtle extends Sprite {
-	private int numKeys, score;
+	private static int numKeys, score;
 	
 	/* SET THIS VARIABLE TO TRUE WHEN THE TURTLE GETS ENOUGH KEYS TO WIN
 	 * screen switching depends on this
@@ -104,6 +104,14 @@ public class Turtle extends Sprite {
 	
 	public void addToScore(int add) {
 		score += add;
+	}
+	
+	public void addToKeys(int add) {
+		numKeys += add;
+	}
+	
+	public int getKeysNo() {
+		return numKeys;
 	}
 	
 	public void setScore(int sc) {
