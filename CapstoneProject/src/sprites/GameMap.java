@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 /**
  * This represents the map storing the obstacles and chests. 
- * @author Byron Tam, Tapish Singh
- * @version 5/14/22
+ * @author Byron Tam
+ * @version 5/21/22
  */
 public class GameMap {
 	ArrayList<Obstacle> obs1 = new ArrayList<>();
@@ -61,6 +61,7 @@ public class GameMap {
 	}
 	
 	public void setMapDiff(boolean diff) {
+		if(diff) {
 			chest5.add(new Chest(700, 550, 80, 60));
 			obs5.add(new Obstacle(600, 450, 50, 50, 1));
 			obs5.add(new Obstacle(300, 450, 50, 50, 1));
@@ -78,6 +79,9 @@ public class GameMap {
 			enemy5.add(new Enemy(400, 300, 50, 50, false));
 			enemy5.add(new Enemy(600, 700, 50, 50, false));
 			obs5.add(new Obstacle(500, 200, 50, 50, 1));
+		} else {
+			
+		}
 	}
 	public ArrayList<Obstacle> getCurrentObstacle(int roomNum) {
 		if (roomNum == 1) return obs1;

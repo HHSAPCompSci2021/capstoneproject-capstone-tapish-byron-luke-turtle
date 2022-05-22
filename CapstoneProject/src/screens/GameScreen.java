@@ -19,6 +19,7 @@ public class GameScreen extends Screen {
 	private int [][] roomNum = {{1, 2, 3} , {4, 5, 6}, {7, 8, 9}};
 	private int difficulty, i, j, current;
 	private DrawingSurface surface;
+	private Sprite gate;
 	private boolean gameOver;
 	private Turtle player;
 	private ArrayList<Sprite> sprites;
@@ -38,6 +39,7 @@ public class GameScreen extends Screen {
 		super(900, 700);
 		this.surface = surface;
 		map = new GameMap();
+		sprites = new ArrayList<Sprite>();
 		obstacles = new ArrayList<Obstacle>();
 		enemies = new ArrayList<Enemy>();
 		riddles = new ArrayList<Chest>();
@@ -47,9 +49,6 @@ public class GameScreen extends Screen {
 		obstacles = map.getCurrentObstacle(current);
 		enemies = map.getCurrentEnemy(current);
 		riddles = map.getCurrentChest(current);
-		
-		
-		
 	}
 	
 	/**
@@ -75,7 +74,6 @@ public class GameScreen extends Screen {
 	public void draw() {
 
 		surface.image(backgr, 0, 0, 900, 700);
-	//	numKeys = player.getScore();
 		current = roomNum[i][j];
 		obstacles = map.getCurrentObstacle(current);
 		enemies = map.getCurrentEnemy(current);
@@ -84,7 +82,6 @@ public class GameScreen extends Screen {
 		int min = (int) (elapsed/1000/60);
 		int sec = (int) ((elapsed/1000)%60);
 		int rem = (int) (elapsed%1000);	
-	//	surface.background(0, 0, 0);
 		if(!gameOver) {
 		player.draw(surface, player.getX(), player.getY(), player.getWidth(), player.getHeight());
 		}
@@ -218,8 +215,7 @@ public class GameScreen extends Screen {
 					}
 				}
 			}
-		}
-		
 		
 	}
+}
 }

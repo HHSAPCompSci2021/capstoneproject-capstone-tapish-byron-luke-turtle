@@ -30,7 +30,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	public float ratioX, ratioY;
 	
 	private ArrayList<Integer> keyInputs;
-	
+	private boolean diff;
 	private Screen activeScreen;
 	private ArrayList<Screen> screens;
 	// need this for G4P stuff

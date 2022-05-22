@@ -54,17 +54,22 @@ public class Turtle extends Sprite {
 					if (sprite instanceof Enemy) {
 						drawingSurface.switchScreen(ScreenSwitcher.GAME_OVER_S);
 					}
-					if(sprite.getX() > getX()) {
+					
+					if(sprite.getX() >= getX()+getWidth()-speed) {
 						blockedRight = true;
+						setX(sprite.getX()-getWidth());	
 					}
-					if(sprite.getX() < getX()) {
+					if(sprite.getX() + sprite.getWidth() <= getX()+speed) {
 						blockedLeft = true;
+						setX(sprite.getX()+sprite.getWidth());
 					}
-					if(sprite.getY() > getY()) {
+					if(sprite.getY() >= getY()+getHeight()-speed) {
 						blockedDown = true;
+						setY(sprite.getY() - getHeight());
 					}
-					if(sprite.getY() < getY()) {
+					if(sprite.getY() +sprite.getHeight() <= getY()+speed) {
 						blockedUp = true;
+						setY(sprite.getY()+sprite.getHeight());
 					}
 				}
 			}
@@ -86,17 +91,11 @@ public class Turtle extends Sprite {
 	 * returns the current score of the turtle
 	 * @return the current score of the turtle
 	 */
-	public int getScore( ) {
+	public int getScore(int time) {
+		score = (int)((20000000-time)*1.5) + 100000*numKeys;
 		return score;
 	}
 	
-	/**
-	 * adds the specified value to the score
-	 * @param add the value you want to add to the score
-	 */
-	public void addToScore(int add) {
-		score += add;
-	}
 	
 	/**
 	 * adds the specified number of keys to the overall key count
