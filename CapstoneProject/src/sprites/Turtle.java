@@ -79,33 +79,9 @@ public class Turtle extends Sprite {
 			setX(getX() - speed);
 			setImage("img/turtleLeft.png");
 		}
-		
-		
+
 	}
 
-
-	/**
-	 * Checks if the turtle can move and if not it stays in place.
-	 */
-	public boolean canMove() {
-		return true;
-		
-	}
-	
-	/*
-	public void act() { 
-		if (canMove() == true){
-			walk(numKeys);
-			
-		}
-		
-		else {
-			
-		}
-		
-	}
-	*/
-	
 	/**
 	 * returns the current score of the turtle
 	 * @return the current score of the turtle

@@ -48,17 +48,7 @@ public abstract class Sprite {
 	public boolean doesRectangleSpriteCollide(Sprite other) {
 		return (new Rectangle(x,y,width,height)).intersects(new Rectangle(other.x,other.y,other.width,other.height));
 	}
-	/**
-	 * Method for setting window limits for movement
-	 * @param windowWidth max width sprite can move to
-	 * @param windowHeight max height sprite can move to
-	 */
-	public void applyWindowLimits(int windowWidth, int windowHeight) {
-		x = Math.min(x,windowWidth-width);
-		y = Math.min(y,windowHeight-height);
-		x = Math.max(0,x);
-		y = Math.max(0,y);
-	}
+	
 	
 	/**
 	 * returns x coordinate of sprite
@@ -128,4 +118,5 @@ public abstract class Sprite {
 	public void draw(PApplet g, int x, int y, int width, int height) {
 		g.image(pimage, x, y, width, height);
 	}
+
 }

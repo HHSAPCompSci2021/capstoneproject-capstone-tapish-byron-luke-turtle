@@ -37,7 +37,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	private SplashScreen buttonVar;
 	
 	
-	private GameMap diffVar = new GameMap(true);
+	private GameMap diffVar;
 	private GameScreen timerVar;
 	
 	

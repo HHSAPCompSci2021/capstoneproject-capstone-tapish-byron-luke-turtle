@@ -32,4 +32,5 @@ public class Obstacle extends Sprite {
 	public int getObsType() {
 		return obsType;
 	}
+	
 }

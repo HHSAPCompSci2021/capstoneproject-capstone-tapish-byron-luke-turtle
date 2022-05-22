@@ -27,6 +27,18 @@ public class Enemy extends Sprite{
 	}
 	
 	/**
+	 * Method for setting window limits for movement
+	 * @param windowWidth max width sprite can move to
+	 * @param windowHeight max height sprite can move to
+	 */
+	public void applyWindowLimits(int windowWidth, int windowHeight) {
+		setX(Math.min(getX(),windowWidth-getWidth()));
+		setY(Math.min(getY(),windowHeight-getHeight()));
+		setX(Math.max(0,getX()));
+		setY(Math.max(0,getY()));
+	}
+	
+	/**
 	 * Sets the direction of movement of the enemy
 	 * @param dir the direction of movement of the enemy
 	 */

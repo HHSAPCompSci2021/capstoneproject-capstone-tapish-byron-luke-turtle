@@ -16,17 +16,18 @@ import sprites.*;
  * This is the main screen where the gameplay happens. 
  */
 public class GameScreen extends Screen {
-	
-	private int difficulty;
+	private int [][] roomNum = {{1, 2, 3} , {4, 5, 6}, {7, 8, 9}};
+	private int difficulty, i, j, current;
 	private DrawingSurface surface;
-	private int numKeys;
 	private boolean gameOver;
 	private Turtle player;
+	private ArrayList<Sprite> sprites;
 	private ArrayList<Obstacle> obstacles;
 	private ArrayList<Enemy> enemies;
 	private ArrayList<Chest> riddles;
 	private long start, timePaused;
 	private PImage backgr;
+	private GameMap map;
 	
 	
 	/**
@@ -36,28 +37,19 @@ public class GameScreen extends Screen {
 	public GameScreen(DrawingSurface surface) {
 		super(900, 700);
 		this.surface = surface;
+		map = new GameMap();
 		obstacles = new ArrayList<Obstacle>();
 		enemies = new ArrayList<Enemy>();
 		riddles = new ArrayList<Chest>();
 		player = new Turtle(250, 200, 60, 75, surface);
-		obstacles.add(new Obstacle(600, 450, 50, 50, 1));
-		obstacles.add(new Obstacle(300, 450, 50, 50, 1));
-		obstacles.add(new Obstacle(100, 450, 50, 50, 1));
-		obstacles.add(new Obstacle(200, 240, 50, 50, 1));
-		obstacles.add(new Obstacle(500, 280, 50, 50, 1));
-		obstacles.add(new Obstacle(250, 450, 50, 50, 1));
-		obstacles.add(new Obstacle(270, 450, 50, 50, 1));
-		obstacles.add(new Obstacle(600, 450, 50, 50, 1));
-		obstacles.add(new Obstacle(360, 450, 50, 50, 1));
-		obstacles.add(new Obstacle(750, 450, 50, 50, 1));
-		enemies.add(new Enemy(500, 500, 50, 50, true));
-		enemies.add(new Enemy(700, 200, 50, 50, false));
-		enemies.add(new Enemy(300, 100, 50, 50, true));
-		enemies.add(new Enemy(400, 300, 50, 50, false));
-		enemies.add(new Enemy(600, 700, 50, 50, false));
-		obstacles.add(new Obstacle(500, 200, 50, 50, 1));
-		riddles.add(new Chest(700, 550, 80, 60));
-		numKeys = 0;
+		i = j = 1;
+		int current = roomNum[i][j];
+		obstacles = map.getCurrentObstacle(current);
+		enemies = map.getCurrentEnemy(current);
+		riddles = map.getCurrentChest(current);
+		
+		
+		
 	}
 	
 	/**
@@ -84,13 +76,15 @@ public class GameScreen extends Screen {
 
 		surface.image(backgr, 0, 0, 900, 700);
 	//	numKeys = player.getScore();
-		
+		current = roomNum[i][j];
+		obstacles = map.getCurrentObstacle(current);
+		enemies = map.getCurrentEnemy(current);
+		riddles = map.getCurrentChest(current);
 		long elapsed = System.currentTimeMillis() - start - timePaused;
 		int min = (int) (elapsed/1000/60);
 		int sec = (int) ((elapsed/1000)%60);
 		int rem = (int) (elapsed%1000);	
 	//	surface.background(0, 0, 0);
-		player.applyWindowLimits(900,700);
 		if(!gameOver) {
 		player.draw(surface, player.getX(), player.getY(), player.getWidth(), player.getHeight());
 		}
@@ -114,40 +108,48 @@ public class GameScreen extends Screen {
 			rid.draw(surface, rid.getX(), rid.getY(), rid.getWidth(), rid.getHeight());
 		}
 		
-		if(player.getX() < 100) {
+		if(player.getX() < 100 && j !=0) {
 			surface.image(new PImage(new ImageIcon("img/ArrowLeft.png").getImage()), 20, 350, 40, 40);
+		} else {
+			player.setX(Math.max(0,player.getX()));
 		}
-		if(player.getY() < 100) {
+		if(player.getY() < 100 && i !=0) {
 			surface.image(new PImage(new ImageIcon("img/ArrowUp.png").getImage()), 450, 20, 40, 40);
+		} else {
+			player.setY(Math.max(0,player.getY()));
 		}
-		if(player.getY() > 500) {
+		if(player.getY() > 500 && i != 2) {
 			surface.image(new PImage(new ImageIcon("img/ArrowDown.png").getImage()), 450, 640, 40, 40);
+		} else {
+			player.setY(Math.min(player.getY(),700-player.getHeight()));;
 		}
-		if(player.getX() > 700) {
+		if(player.getX() > 700 && j != 2) {
 			surface.image(new PImage(new ImageIcon("img/ArrowRight.png").getImage()), 840, 350, 40, 40);
+		} else {
+			player.setX(Math.min(player.getX(),900-player.getWidth()));;
+		}
+		if(player.getY() < 0 && i!=0) {
+			i--; 
+			player.setY(625);
+		}
+		if(player.getX() < 0 && j!=0) {
+			j--; 
+			player.setX(840);
+		}	
+		
+		if(player.getX() > 840 && j!=2) {
+			j++; 
+			player.setX(0);
+		}	
+		if(player.getY() > 625 && i!=2) {
+			i++; 
+			player.setY(0);
 		}
 		surface.textSize(30);
 		surface.text(min+":"+sec+":"+rem, 5, 30);
 		surface.image(new PImage(new ImageIcon("img/key.png").getImage()), 760, 20, 40, 40);
 		surface.image(new PImage(new ImageIcon("img/x.png").getImage()), 810, 30, 20, 20);
-	//	surface.text(""+player.getKeysNo(), 845, 50);
-		surface.text(""+numKeys, 845, 50);
-
-		/* this CANNOT be in draw method, as it will be called over and over again. Moved to keyPressed method.
-		if (surface.isPressed(KeyEvent.VK_SPACE)) {
-			for (int i = 0; i < riddles.size(); i++) {
-				Chest rid = riddles.get(i);
-				if (player.doesRectangleSpriteCollide(rid)) {
-					RiddleBank temp = rid.returnRiddle();
-					String riddleStr = temp.getRiddle();
-					String riddleAns = temp.getAnswer();
-					String answer = JOptionPane.showInputDialog(riddleStr);
-					if(answer == riddleAns) 
-						player.addToScore(1);
-				}
-			}
-		}
-		*/
+		surface.text(""+player.getKeysNo(), 845, 50);
 		
 		if(surface.isPressed(KeyEvent.VK_UP)) {
 			player.walk(0, sprites);
@@ -202,8 +204,7 @@ public class GameScreen extends Screen {
 						String riddleAns = temp.getAnswer();
 						String answer = JOptionPane.showInputDialog(riddleStr);
 						if(answer != null && answer.equals(riddleAns)) {
-							//player.addToKeys(1);
-							numKeys++;
+							player.addToKeys(1);
 							rid.ansStatus(true);
 							long pauseEnd = System.currentTimeMillis();
 							timePaused += (pauseEnd - pauseStart);
