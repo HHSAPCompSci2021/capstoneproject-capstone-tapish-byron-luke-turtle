@@ -13,7 +13,7 @@ public class Turtle extends Sprite {
 
 	private static int numKeys, score;
 
-	private DrawingSurface drawingSurface;
+	private DrawingSurface surface;
 
 	
 	/* SET THIS VARIABLE TO TRUE WHEN THE TURTLE GETS ENOUGH KEYS TO WIN
@@ -35,7 +35,7 @@ public class Turtle extends Sprite {
 		numKeys = 0;
 		score = 0;
 		hasEnoughKeys = false;
-		this.drawingSurface = drawingSurface;
+		surface = drawingSurface;
 	}
 	
 	/**
@@ -52,7 +52,7 @@ public class Turtle extends Sprite {
 			if (sprite != this) {
 				if(doesRectangleSpriteCollide(sprite)) {
 					if (sprite instanceof Enemy) {
-						drawingSurface.switchScreen(ScreenSwitcher.GAME_OVER_S);
+						surface.switchScreen(ScreenSwitcher.GAME_OVER_S);
 					}
 					
 					if(sprite.getX() >= getX()+getWidth()-speed) {
@@ -126,7 +126,17 @@ public class Turtle extends Sprite {
 	 * @return the status of completion
 	 */
 	public boolean keyGoalReached() {
-		return hasEnoughKeys;
+		if(surface.getDifficulty() == true) {
+			if(numKeys == 8) {
+				return true;
+			}
+		}
+		else if(surface.getDifficulty() == false) {
+			if(numKeys == 12) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

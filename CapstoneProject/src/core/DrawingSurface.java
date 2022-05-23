@@ -35,7 +35,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	private ArrayList<Screen> screens;
 	// need this for G4P stuff
 	private SplashScreen buttonVar;
-	private boolean gameDifficulty;
+	private static boolean gameDifficulty;
 	
 	private GameMap diffVar;
 	private GameScreen timerVar;
@@ -43,6 +43,13 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	// having this in drawingsurface makes victoryscreen text fetching so much easier
 	private static long time, score, keys;
 	
+	public boolean getDifficulty() {
+		return gameDifficulty;
+	}
+	
+	public void setDifficulty(boolean diff) {
+		gameDifficulty = diff;
+	}
 	
 	public void setTime(long var) {
 		time = var;
@@ -67,6 +74,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	public long getKeys() {
 		return keys;
 	}
+	
 	/**
 	 * No args constructor for DrawingSurface object
 	 * Initializes all of the screens and adds them to the array of screens. Inspired by screen switching mechanism in physicsDemoAP
@@ -92,6 +100,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		buttonVar = screen1;
 		timerVar = screen2;
 		diffVar = new GameMap();
+	//	gameDifficulty = true;
 	}
 
 	/**
@@ -152,9 +161,11 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		if(list.getSelectedText().equals("Easy")) 
 			diffVar.setMapDiff(true);
 			gameDifficulty = true;
+		//	timerVar.setGameDiff(true);
 		if(list.getSelectedText().equals("Hard"))
 			diffVar.setMapDiff(false);
-			gameDifficulty = true;
+			gameDifficulty = false;
+		//	timerVar.setGameDiff(false);
 	}
 	
 	/**

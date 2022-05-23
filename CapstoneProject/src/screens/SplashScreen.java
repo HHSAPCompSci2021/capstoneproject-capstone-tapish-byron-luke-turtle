@@ -46,6 +46,7 @@ public class SplashScreen extends Screen {
 	 * Sets up the splash screen. Instatiates the GButton objects in addition to the GDropList.
 	 */
 	public void setup() {
+		surface.setDifficulty(true);
 		splash = surface.loadImage("img/SplashScreenImg.PNG");
 		G4P.setInputFont("Poor Richard", G4P.PLAIN, 14); // New for G4P V4.3
 		G4P.setDisplayFont("Poor Richard", G4P.PLAIN, 35);

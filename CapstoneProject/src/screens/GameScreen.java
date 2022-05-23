@@ -29,6 +29,7 @@ public class GameScreen extends Screen {
 	private long start, timePaused;
 	private PImage backgr;
 	private GameMap map;
+//	private static boolean gameDiff;
 	
 	
 	/**
@@ -49,7 +50,14 @@ public class GameScreen extends Screen {
 		obstacles = map.getCurrentObstacle(current);
 		enemies = map.getCurrentEnemy(current);
 		riddles = map.getCurrentChest(current);
+	//	gameDiff = true;
 	}
+	
+	/*
+	public void setGameDiff(boolean diff) {
+		gameDiff = diff;
+	}
+	*/
 	
 	/**
 	 * Starts the timer
@@ -79,9 +87,22 @@ public class GameScreen extends Screen {
 		enemies = map.getCurrentEnemy(current);
 		riddles = map.getCurrentChest(current);
 		long elapsed = System.currentTimeMillis() - start - timePaused;
-		int min = (int) (elapsed/1000/60);
-		int sec = (int) ((elapsed/1000)%60);
-		int rem = (int) (elapsed%1000);	
+		long timeLeft = 0;
+		int min = 0; /* = (int) (elapsed/1000/60);	*/
+		int sec = 0; /*	= (int) ((elapsed/1000)%60);	*/
+		int rem = 0; /*	= (int) (elapsed%1000);		*/
+		
+		if(surface.getDifficulty() == true) {
+			min = (int) (elapsed/1000/60);
+			sec = (int) ((elapsed/1000)%60);
+			rem = (int) (elapsed%1000);	
+		}
+		else if(surface.getDifficulty() == false) {
+			timeLeft = 1200000 - elapsed;
+			min = (int) (timeLeft/1000/60);
+			sec = (int) ((timeLeft/1000)%60);
+			rem = (int) (timeLeft%1000);	
+		}
 		if(!gameOver) {
 		player.draw(surface, player.getX(), player.getY(), player.getWidth(), player.getHeight());
 		}
@@ -148,6 +169,10 @@ public class GameScreen extends Screen {
 		surface.image(new PImage(new ImageIcon("img/x.png").getImage()), 810, 30, 20, 20);
 		surface.text(""+player.getKeysNo(), 845, 50);
 		
+		if(timeLeft == 0 && (surface.getDifficulty() == false)) {
+			surface.switchScreen(ScreenSwitcher.GAME_OVER_S);
+		}
+		
 		if(surface.isPressed(KeyEvent.VK_UP)) {
 			player.walk(0, sprites);
 		}
@@ -208,9 +233,14 @@ public class GameScreen extends Screen {
 						if(	answer != null && answer.equals("hint")		/*	surface.isPressed(KeyEvent.VK_)		*/) {
 							Object[] options = {"Thank you, hint popup!"};
 							int answer2 = JOptionPane.showOptionDialog(null, riddleHint, "Hint Window", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-							long pauseEnd = System.currentTimeMillis();
-							timePaused += (pauseEnd - pauseStart);
-							timePaused -= 30000;
+						//	if(surface.getDifficulty()) {
+								long pauseEnd = System.currentTimeMillis();
+								timePaused += (pauseEnd - pauseStart);
+								timePaused -= 30000;
+					//		}
+						//	else {
+								
+						//	}
 				/*			if(answer2 == JOptionPane.YES_OPTION) {
 								long pauseEnd = System.currentTimeMillis();
 								timePaused += (pauseEnd - pauseStart);
