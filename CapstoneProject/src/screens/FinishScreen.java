@@ -3,6 +3,7 @@ package screens;
 import java.awt.event.KeyEvent;
 
 import core.DrawingSurface;
+import processing.core.PFont;
 import processing.core.PImage;
 /**
  * 
@@ -12,8 +13,9 @@ import processing.core.PImage;
  */
 public class FinishScreen extends Screen {
 
-	DrawingSurface surface;
+	private DrawingSurface surface;
 	private PImage beach, turt;
+	
 	
 	/**
 	 * Creates a finish screen (the screen that is displayed after game completion) with preset dimensions. 
@@ -39,6 +41,27 @@ public class FinishScreen extends Screen {
 		surface.background(0, 0, 255);
 		surface.image(beach, 0, 0, 900, 700);
 		surface.image(turt, 500, 500, 178, 100);
+		
+		int min = (int) (surface.getTime()/1000/60);
+		int sec = (int) ((surface.getTime()/1000)%60);
+		int rem = (int) (surface.getTime()%1000);	
+		
+		String timePrint = min + " : " + sec + " : " + rem;
+		
+		surface.textAlign(surface.CENTER);
+		surface.fill(0);
+		PFont fontBig = surface.createFont("Poor Richard", 50);
+		PFont fontReg = surface.createFont("Poor Richard", 30);
+		surface.textFont(fontBig);
+		surface.text("CONGRATULATIONS!", 450, 200);
+		surface.textFont(fontReg);
+		surface.text("You escaped!"
+				+ "\nScore:  "
+				+ surface.getScore()
+				+ "\nTime:  "
+				+ timePrint
+				+ "\nKeys Collected:  "
+				+ surface.getKeys(), 450, 250);
 		
 		/*
 		if(surface.isPressed(KeyEvent.VK_2)) {

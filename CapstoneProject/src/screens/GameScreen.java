@@ -162,10 +162,14 @@ public class GameScreen extends Screen {
 		}
 
 		if(surface.isPressed(KeyEvent.VK_3)) {
+			surface.setTime(elapsed);
+			surface.setKeys((long) player.getKeysNo());
 			surface.switchScreen(ScreenSwitcher.VICTORY_S);
 		}
 		
 		if(player.keyGoalReached() == true) {
+			surface.setTime(elapsed);
+			surface.setKeys((long) player.getKeysNo());
 			surface.switchScreen(ScreenSwitcher.VICTORY_S);
 		}
 	}
@@ -199,7 +203,20 @@ public class GameScreen extends Screen {
 						RiddleBank temp = rid.returnRiddle();
 						String riddleStr = temp.getRiddle();
 						String riddleAns = temp.getAnswer();
-						String answer = JOptionPane.showInputDialog(riddleStr);
+						String riddleHint = temp.getHint();
+						String answer = JOptionPane.showInputDialog(riddleStr + "\nenter the answer as one word, all lowercase.\n\nType the word \"hint\" in the dialog box for a hint, and then reopen this chest.\n");
+						if(	answer != null && answer.equals("hint")		/*	surface.isPressed(KeyEvent.VK_)		*/) {
+							Object[] options = {"Thank you, hint popup!"};
+							int answer2 = JOptionPane.showOptionDialog(null, riddleHint, "Hint Window", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+							long pauseEnd = System.currentTimeMillis();
+							timePaused += (pauseEnd - pauseStart);
+							timePaused -= 30000;
+				/*			if(answer2 == JOptionPane.YES_OPTION) {
+								long pauseEnd = System.currentTimeMillis();
+								timePaused += (pauseEnd - pauseStart);
+								timePaused -= 30000;
+							}		*/
+						}
 						if(answer != null && answer.equals(riddleAns)) {
 							player.addToKeys(1);
 							rid.ansStatus(true);
