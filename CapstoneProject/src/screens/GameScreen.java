@@ -318,6 +318,7 @@ public class GameScreen extends Screen {
 						surface.switchScreen(ScreenSwitcher.VICTORY_S);
 					} else {
 						// add popup that says you don't have enough keys
+						JOptionPane.showMessageDialog(null, "Sorry, not enough keys! Go get some more!");
 					}
 				}
 			}
