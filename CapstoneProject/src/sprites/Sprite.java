@@ -119,8 +119,4 @@ public abstract class Sprite {
 		g.image(pimage, x, y, width, height);
 	}
 	
-	public int getLethality() {
-		return 1;
-	}
-
 }

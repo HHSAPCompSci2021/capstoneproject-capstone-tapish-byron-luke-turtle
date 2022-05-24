@@ -62,7 +62,7 @@ public class GameMap {
 		chest1.add(new Chest(50, 100, 80, 60));
 		
 		//room 2
-		gate = new Gate(400, 200, 150, 250);
+		gate = new Gate(375, 200, 150, 250);
 		
 		//room3 
 		chest3.add(new Chest(400, 300, 80, 60));
