@@ -107,6 +107,10 @@ public class GameMap {
 		obs2.add(new Obstacle(350, 350, 50, 50, 1));
 	}
 	
+	/**
+	 * Sets up the map based on the difficulty
+	 * @param diff the difficulty selected by the user
+	 */
 	public void setMapDiff(boolean diff) {
 		if(diff) {
 			chest5.add(new Chest(700, 550, 80, 60));
@@ -130,6 +134,12 @@ public class GameMap {
 			
 		}
 	}
+	
+	/**
+	 * Fetches the obstacle that corresponds to the current room
+	 * @param roomNum number of room that the player is currently in
+	 * @return list of obstacles
+	 */
 	public ArrayList<Obstacle> getCurrentObstacle(int roomNum) {
 		if (roomNum == 1) return obs1;
 		if (roomNum == 2) return obs2;
@@ -142,6 +152,12 @@ public class GameMap {
 		if (roomNum == 9) return obs9;
 		return null;
 	}
+	
+	/**
+	 * Fetches the current enemy corresponding to the room
+	 * @param roomNum number of room that the player is currently in
+	 * @return list of enemies
+	 */
 	public ArrayList<Enemy> getCurrentEnemy(int roomNum) {
 		if (roomNum == 1) return enemy1;
 		if (roomNum == 2) return enemy2;
@@ -154,6 +170,12 @@ public class GameMap {
 		if (roomNum == 9) return enemy9;
 		return null;
 	}
+	
+	/**
+	 * Fetches the current chest corresponding to the room
+	 * @param roomNum number of room that the player is currently in
+	 * @return list of chests
+	 */
 	public ArrayList<Chest> getCurrentChest(int roomNum) {
 		if (roomNum == 1) return chest1;
 		if (roomNum == 2) return chest2;

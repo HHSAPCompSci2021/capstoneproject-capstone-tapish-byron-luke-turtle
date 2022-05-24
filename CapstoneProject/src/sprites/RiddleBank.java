@@ -148,6 +148,15 @@ public class RiddleBank {
 	}
 	
 	
+	/**
+	 * 
+	 * 
+	 * @author Byron Tam
+	 *
+	 * @param <S1> first value
+	 * @param <S2> second value
+	 * @param <S3> third value
+	 */
 	static class Trio <S1, S2, S3> {
 		S1 first;
 		S2 second;

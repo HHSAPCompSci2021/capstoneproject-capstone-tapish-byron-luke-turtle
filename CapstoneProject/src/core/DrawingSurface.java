@@ -19,7 +19,7 @@ import sprites.GameMap;
  * 
  * @author Tapish Singh
  * This is the main class for the Processing drawing utlility
- * @version 5/20/22
+ * @version 5/23/22
  */
 public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	/*
@@ -43,34 +43,66 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	// having this in drawingsurface makes victoryscreen text fetching so much easier
 	private static long time, score, keys;
 	
+	/**
+	 * Method that returns difficulty set by user
+	 * @return difficulty set by user. true means easy, false means hard.
+	 */
 	public boolean getDifficulty() {
 		return gameDifficulty;
 	}
 	
+	/**
+	 * Method that sets the game difficulty
+	 * @param diff difficulty desired. true means easy, false means hard.
+	 */
 	public void setDifficulty(boolean diff) {
 		gameDifficulty = diff;
 	}
 	
+	/**
+	 * Sets time variable in DrawingSurface to a specific value. Used to display time elapsed on victory screen.
+	 * @param var value time variable is desired to be
+	 */
 	public void setTime(long var) {
 		time = var;
 	}
 	
+	/**
+	 * Returns the time variable in this class. Used to display time elapsed on victory screen.
+	 * @return time time value stored in the form of a long
+	 */
 	public long getTime() {
 		return time;
 	}
 	
+	/**
+	 * Sets the score. Used in Victory Screen.
+	 * @param scr value you want score to be set to.
+	 */
 	public void setScore(long scr) {
 		score = scr;
 	}
 	
+	/**
+	 * Returns the score. Used in victory screen.
+	 * @return the current score.
+	 */
 	public long getScore() {
 		return score;
 	}
 	
+	/**
+	 * Sets the number of keys the player has
+	 * @param key the number of keys the player has
+	 */
 	public void setKeys(long key) {
 		keys = key;
 	}
 	
+	/**
+	 * Returns the number of keys the player has
+	 * @return the number of keys the player has
+	 */
 	public long getKeys() {
 		return keys;
 	}
@@ -110,6 +142,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	public void clearKeyInputs() {
 		keyInputs = new ArrayList<Integer>();
 	}
+	
 	/**
 	 * Switches to a different screen based on parameter passed through
 	 * @param i the screen number you want to switch to
