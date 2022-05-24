@@ -3,7 +3,7 @@ package core;
 
 /*
  * COMMAND FOR JAVADOCS (copy and paste safe) - go to PROJECT directory
- * javadoc -author -version -tag pre:cm:"Precondition:" -tag post:cm:"Postcondition:" -d doc -classpath ./lib/* -sourcepath ./src/ <PACKAGE NAME>
+ * javadoc -author -version -tag pre:cm:"Precondition:" -tag post:cm:"Postcondition:" -d doc -classpath ./lib/* -sourcepath ./src/ core screens sprites
  * 
  * COMMAND FOR JARS - USE ECLIPSE ITSELF - "runnable jar"
  */
