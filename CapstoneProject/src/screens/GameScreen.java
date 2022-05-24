@@ -29,7 +29,7 @@ public class GameScreen extends Screen {
 	private long start, timePaused;
 	private PImage backgr;
 	private GameMap map;
-//	private static boolean gameDiff;
+
 
 	/**
 	 * Creates a game screen (the screen which the player will primarily interact
@@ -51,12 +51,8 @@ public class GameScreen extends Screen {
 		obstacles = map.getCurrentObstacle(current);
 		enemies = map.getCurrentEnemy(current);
 		riddles = map.getCurrentChest(current);
-		// gameDiff = true;
+		map.setMapDiff(surface.getDifficulty());
 	}
-
-	/*
-	 * public void setGameDiff(boolean diff) { gameDiff = diff; }
-	 */
 
 	/**
 	 * Starts the timer
@@ -80,7 +76,6 @@ public class GameScreen extends Screen {
 	 * timer in addition to drawing the Turtle sprite.
 	 */
 	public void draw() {
-
 		surface.image(backgr, 0, 0, 900, 700);
 		current = roomNum[i][j];
 		obstacles = map.getCurrentObstacle(current);
@@ -275,7 +270,7 @@ public class GameScreen extends Screen {
 		if (surface.isPressed(KeyEvent.VK_SPACE)) {
 			for (int i = 0; i < riddles.size(); i++) {
 				Chest rid = riddles.get(i);
-				Chest place = new Chest(rid.getX()-7, rid.getY()-7, rid.getWidth()+14, rid.getHeight()+14);
+				Chest place = new Chest(rid.getX()-9, rid.getY()-9, rid.getWidth()+18, rid.getHeight()+18);
 				if (player.doesRectangleSpriteCollide(place)) {
 					if (!rid.getStatus()) {
 						long pauseStart = System.currentTimeMillis();
