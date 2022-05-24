@@ -16,7 +16,7 @@ public class GameOverScreen extends Screen {
 	private PImage gameOver;
 	
 	/**
-	 * Creates a finish screen (the screen that is displayed after game completion) with preset dimensions. 
+	 * Creates a game over screen (the screen that is displayed after losing) with preset dimensions. 
 	 * @param surface DrawingSurface upon which the finish screen will be created
 	 */
 	public GameOverScreen(DrawingSurface surface) {
@@ -25,7 +25,7 @@ public class GameOverScreen extends Screen {
 	}
 	
 	/**
-	 * Loads images of beach and turtle into Processing utility
+	 * Loads game over image into Processing utility
 	 */
 	public void setup() {
 		gameOver = surface.loadImage("img/gg.png");

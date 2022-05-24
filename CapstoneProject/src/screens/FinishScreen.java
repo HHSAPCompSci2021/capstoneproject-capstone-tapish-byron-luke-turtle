@@ -8,7 +8,7 @@ import processing.core.PImage;
 /**
  * 
  * @author Tapish Singh
- * @version 5/13/22
+ * @version 5/22/22
  * This is the screen that is displayed upon game completion.
  */
 public class FinishScreen extends Screen {
@@ -35,7 +35,7 @@ public class FinishScreen extends Screen {
 	}
 	
 	/**
-	 * Displays images called in setup() in Processing window
+	 * Displays images called in setup() in Processing window, in addition to displaying the text that tells the player how they did during the game.
 	 */
 	public void draw() {
 		surface.background(0, 0, 255);
