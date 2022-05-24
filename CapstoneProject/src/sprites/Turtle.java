@@ -43,38 +43,61 @@ public class Turtle extends Sprite {
 	 * @param dir the direction it moves in (up: 0, right: 1, down: 2, left: 3)
 	 */
 	public void walk(int dir, ArrayList<Sprite> sprites) {
-		int speed = 7;
+		int speed = 9;
 		boolean blockedRight = false;
 		boolean blockedLeft = false;
 		boolean blockedUp = false;
 		boolean blockedDown = false;
 		for (Sprite sprite : sprites) {
 			if (sprite != this) {
-				if(doesRectangleSpriteCollide(sprite)) {
+				int x = dir == 1 ? getX() + speed : getX();
+				x = dir == 3 ? getX() - speed : x;
+				int y = dir == 0 ? getY() - speed : getY();
+				y = dir == 2 ? getY() + speed : y;
+				Turtle temp = new Turtle(x, y, getWidth(), getHeight(), surface);
+				if(temp.doesRectangleSpriteCollide(sprite)) {	
+					if (dir == 0) {
+						blockedUp = true;
+
+					}
+					if (dir == 1) {
+						blockedRight = true;
+
+					}
+					if (dir == 2) {
+						blockedDown = true;
+
+					}
+					if (dir == 3) {
+						blockedLeft = true;
+
+					}
 					if (sprite instanceof Enemy) {
 						surface.switchScreen(ScreenSwitcher.GAME_OVER_S);
 					}
 					if (sprite instanceof Obstacle) {
-						if(sprite.getLethality() == 0) { 
+						if(((Obstacle)sprite).getLethality() == 0) { 
 						surface.switchScreen(ScreenSwitcher.GAME_OVER_S);
 						}
 					}
-					if(sprite.getX() >= getX()+getWidth()-speed) {
+					
+					/*if(sprite.getX() >= getX()+getWidth()-speed) {
 						blockedRight = true;
 						setX(sprite.getX()-getWidth());	
 					}
 					if(sprite.getX() + sprite.getWidth() <= getX()+speed) {
 						blockedLeft = true;
-						setX(sprite.getX()+sprite.getWidth());
+						//setX(sprite.getX()+sprite.getWidth());
 					}
 					if(sprite.getY() >= getY()+getHeight()-speed) {
 						blockedDown = true;
-						setY(sprite.getY() - getHeight());
+						//setY(sprite.getY() - getHeight());
 					}
 					if(sprite.getY() +sprite.getHeight() <= getY()+speed) {
 						blockedUp = true;
-						setY(sprite.getY()+sprite.getHeight());
+						//setY(sprite.getY()+sprite.getHeight());
 					}
+					*/
 				}
 			}
 		}
