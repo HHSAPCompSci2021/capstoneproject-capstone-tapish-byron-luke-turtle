@@ -17,7 +17,7 @@ import sprites.*;
  */
 public class GameScreen extends Screen {
 	private int [][] roomNum = {{1, 2, 3} , {4, 5, 6}, {7, 8, 9}};
-	private int difficulty, i, j, current;
+	private int i, j, current;
 	private DrawingSurface surface;
 	private Sprite gate;
 	private boolean gameOver;
@@ -86,6 +86,7 @@ public class GameScreen extends Screen {
 		obstacles = map.getCurrentObstacle(current);
 		enemies = map.getCurrentEnemy(current);
 		riddles = map.getCurrentChest(current);
+		gate = map.getCurrentGate(current);
 		long elapsed = System.currentTimeMillis() - start - timePaused;
 		long timeLeft = 0;
 		int min = 0; /* = (int) (elapsed/1000/60);	*/
@@ -110,6 +111,7 @@ public class GameScreen extends Screen {
 		sprites.addAll(obstacles);
 		sprites.addAll(enemies);
 		sprites.addAll(riddles);
+		if(gate != null) sprites.add(gate);
 		
 		for (int i = 0; i < obstacles.size(); i++) {
 			Obstacle obs = obstacles.get(i);
@@ -125,7 +127,9 @@ public class GameScreen extends Screen {
 			rid.chooseRiddle(i);
 			rid.draw(surface, rid.getX(), rid.getY(), rid.getWidth(), rid.getHeight());
 		}
-		
+		if(gate != null) {
+		gate.draw(surface, gate.getX(), gate.getY(), gate.getWidth(), gate.getHeight());
+		}
 		if(player.getX() < 100 && j !=0) {
 			surface.image(new PImage(new ImageIcon("img/ArrowLeft.png").getImage()), 20, 350, 40, 40);
 		} else {

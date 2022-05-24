@@ -161,11 +161,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		if(list.getSelectedText().equals("Easy")) 
 			diffVar.setMapDiff(true);
 			gameDifficulty = true;
-		//	timerVar.setGameDiff(true);
 		if(list.getSelectedText().equals("Hard"))
 			diffVar.setMapDiff(false);
 			gameDifficulty = false;
-		//	timerVar.setGameDiff(false);
 	}
 	
 	/**
