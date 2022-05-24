@@ -150,9 +150,6 @@ public class RiddleBank {
 	
 	/**
 	 * 
-	 * 
-	 * @author Byron Tam
-	 *
 	 * @param <S1> first value
 	 * @param <S2> second value
 	 * @param <S3> third value

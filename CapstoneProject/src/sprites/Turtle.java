@@ -11,7 +11,7 @@ import screens.ScreenSwitcher;
  */
 public class Turtle extends Sprite {
 
-	private static int numKeys, score;
+	private int numKeys, score;
 
 	private DrawingSurface surface;
 
@@ -80,24 +80,6 @@ public class Turtle extends Sprite {
 						surface.switchScreen(ScreenSwitcher.GAME_OVER_S);
 						}
 					}
-					
-					/*if(sprite.getX() >= getX()+getWidth()-speed) {
-						blockedRight = true;
-						setX(sprite.getX()-getWidth());	
-					}
-					if(sprite.getX() + sprite.getWidth() <= getX()+speed) {
-						blockedLeft = true;
-						//setX(sprite.getX()+sprite.getWidth());
-					}
-					if(sprite.getY() >= getY()+getHeight()-speed) {
-						blockedDown = true;
-						//setY(sprite.getY() - getHeight());
-					}
-					if(sprite.getY() +sprite.getHeight() <= getY()+speed) {
-						blockedUp = true;
-						//setY(sprite.getY()+sprite.getHeight());
-					}
-					*/
 				}
 			}
 		}
@@ -128,8 +110,8 @@ public class Turtle extends Sprite {
 	 * adds the specified number of keys to the overall key count
 	 * @param add the number of keys you want to add
 	 */
-	public void addToKeys(int add) {
-		numKeys += add;
+	public void addToKeys() {
+		numKeys++;
 	}
 	
 	/**

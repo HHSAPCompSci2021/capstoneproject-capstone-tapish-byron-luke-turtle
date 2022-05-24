@@ -19,7 +19,7 @@ import processing.core.PImage;
  * @version 5/6/22
  * @author Byron Tam, Tapish Singh(Mr. Shelby's collision method)
  */
-public abstract class Sprite {
+public class Sprite {
 
 	private int x, y, width, height;
 	private PImage pimage;

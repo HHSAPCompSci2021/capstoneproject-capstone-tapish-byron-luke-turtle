@@ -84,9 +84,9 @@ public class GameScreen extends Screen {
 		gate = map.getCurrentGate(current);
 		long elapsed = System.currentTimeMillis() - start - timePaused;
 		long timeLeft = 0;
-		int min = 0; /* = (int) (elapsed/1000/60); */
-		int sec = 0; /* = (int) ((elapsed/1000)%60); */
-		int rem = 0; /* = (int) (elapsed%1000); */
+		int min = 0; 
+		int sec = 0; 
+		int rem = 0; 
 
 		if (surface.getDifficulty() == true) {
 			min = (int) (elapsed / 1000 / 60);
@@ -270,7 +270,7 @@ public class GameScreen extends Screen {
 		if (surface.isPressed(KeyEvent.VK_SPACE)) {
 			for (int i = 0; i < riddles.size(); i++) {
 				Chest rid = riddles.get(i);
-				Chest place = new Chest(rid.getX()-9, rid.getY()-9, rid.getWidth()+18, rid.getHeight()+18);
+				Chest place = new Chest(rid.getX() - 9, rid.getY() - 9, rid.getWidth() + 18, rid.getHeight() + 18);
 				if (player.doesRectangleSpriteCollide(place)) {
 					if (!rid.getStatus()) {
 						long pauseStart = System.currentTimeMillis();
@@ -284,22 +284,12 @@ public class GameScreen extends Screen {
 							Object[] options = { "Thank you, hint popup!" };
 							int answer2 = JOptionPane.showOptionDialog(null, riddleHint, "Hint Window",
 									JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-							// if(surface.getDifficulty()) {
 							long pauseEnd = System.currentTimeMillis();
 							timePaused += (pauseEnd - pauseStart);
 							timePaused -= 30000;
-							// }
-							// else {
-
-							// }
-							/*
-							 * if(answer2 == JOptionPane.YES_OPTION) { long pauseEnd =
-							 * System.currentTimeMillis(); timePaused += (pauseEnd - pauseStart); timePaused
-							 * -= 30000; }
-							 */
 						}
 						if (answer != null && answer.equals(riddleAns)) {
-							player.addToKeys(1);
+							player.addToKeys();
 							rid.ansStatus(true);
 							long pauseEnd = System.currentTimeMillis();
 							timePaused += (pauseEnd - pauseStart);
@@ -313,16 +303,17 @@ public class GameScreen extends Screen {
 				}
 			}
 			if (gate != null) {
-				if (player.doesRectangleSpriteCollide(gate)) {
+				Turtle fake = new Turtle(player.getX() - 9, player.getY() - 9, player.getWidth() + 18,
+						player.getHeight() + 18, surface);
+				if (fake.doesRectangleSpriteCollide(gate)) {
 					if (player.keyGoalReached()) {
 						surface.switchScreen(ScreenSwitcher.VICTORY_S);
 					} else {
-						// add popup that says you don't have enough keys
 						JOptionPane.showMessageDialog(null, "Sorry, not enough keys! Go get some more!");
+						surface.clearKeyInputs();
 					}
 				}
 			}
-
 		}
 	}
 }

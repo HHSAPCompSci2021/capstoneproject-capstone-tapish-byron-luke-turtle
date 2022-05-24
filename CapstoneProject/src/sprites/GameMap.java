@@ -118,23 +118,42 @@ public class GameMap {
 		
 
 		//room4
-		chest4.add(new Chest(750, 550, 80, 60));
-		obs4.add(new Obstacle(600, 450, 50, 50, 1));
-		obs4.add(new Obstacle(300, 450, 50, 50, 1));
-		obs4.add(new Obstacle(300, 450, 50, 50, 1));
+		chest4.add(new Chest(100, 400, 80, 60));
+		obs4.add(new Obstacle(250, 0, 50, 50, 1));
+		obs4.add(new Obstacle(300, 0, 50, 50, 1));
+		obs4.add(new Obstacle(250, 650, 50, 50, 1));
+		obs4.add(new Obstacle(300, 650, 50, 50, 1));
+		obs4.add(new Obstacle(350, 650, 50, 50, 1));
+		obs4.add(new Obstacle(400, 650, 50, 50, 1));
+		obs4.add(new Obstacle(450, 650, 50, 50, 1));
+		obs4.add(new Obstacle(500, 650, 50, 50, 1));
+		obs4.add(new Obstacle(350, 0, 50, 50, 1));
+		obs4.add(new Obstacle(400, 0, 50, 50, 1));
+		obs4.add(new Obstacle(450, 0, 50, 50, 1));
+		obs4.add(new Obstacle(500, 0, 50, 50, 1));
+		obs4.add(new Obstacle(200, 0, 50, 50, 1));
+		obs4.add(new Obstacle(200, 50, 50, 50, 1));
+		obs4.add(new Obstacle(200, 100, 50, 50, 1));
+		obs4.add(new Obstacle(200, 150, 50, 50, 1));
+		obs4.add(new Obstacle(200, 200, 50, 50, 1));
+		obs4.add(new Obstacle(200, 250, 50, 50, 1));
 		obs4.add(new Obstacle(200, 300, 50, 50, 1));
-		obs4.add(new Obstacle(500, 280, 50, 50, 1));
-		obs4.add(new Obstacle(500, 200, 50, 50, 1));
-		obs4.add(new Obstacle(270, 450, 50, 50, 1));
-		obs4.add(new Obstacle(600, 450, 50, 50, 1));
-		obs4.add(new Obstacle(100, 300, 50, 50, 1));
-		obs4.add(new Obstacle(40, 450, 50, 50, 1));
+		obs4.add(new Obstacle(200, 350, 50, 50, 1));
+		obs4.add(new Obstacle(200, 400, 50, 50, 1));
+		obs4.add(new Obstacle(200, 450, 50, 50, 1));
+		obs4.add(new Obstacle(200, 500, 50, 50, 1));
+		obs4.add(new Obstacle(200, 550, 50, 50, 1));
+		obs4.add(new Obstacle(200, 600, 50, 50, 1));
+		obs4.add(new Obstacle(200, 650, 50, 50, 1));
+		obs4.add(new Obstacle(50, 150, 50, 50, 0));
+		obs4.add(new Obstacle(150, 300, 50, 50, 0));
+		chest4.add(new Chest(300, 400, 80, 60));
+		enemy4.add(new Enemy(300, 600, 50, 50, true));
+		enemy4.add(new Enemy(350, 200, 50, 50, true));
+		enemy4.add(new Enemy(400, 300, 50, 50, true));
+		enemy4.add(new Enemy(450, 100, 50, 50, true));
 		enemy4.add(new Enemy(500, 500, 50, 50, true));
-		enemy4.add(new Enemy(700, 200, 50, 50, false));
-		enemy4.add(new Enemy(300, 100, 50, 50, true));
-		enemy4.add(new Enemy(400, 300, 50, 50, false));
-		enemy4.add(new Enemy(600, 700, 50, 50, false));
-		obs4.add(new Obstacle(500, 200, 50, 50, 1));
+	
 
 		
 		
@@ -160,6 +179,10 @@ public class GameMap {
 		obs6.add(new Obstacle(300, 250, 50, 50, 1));
 		obs6.add(new Obstacle(350, 200, 50, 50, 1));
 		obs6.add(new Obstacle(400, 150, 50, 50, 1));
+		enemy6.add(new Enemy(600, 400, 50, 50, false));
+		enemy6.add(new Enemy(400, 200, 50, 50, false));
+		enemy6.add(new Enemy(500, 500, 50, 50, false));
+		enemy6.add(new Enemy(300, 300, 50, 50, true));
 		chest6.add(new Chest(750, 600, 80, 60));
 
 		//room 7
@@ -233,16 +256,21 @@ public class GameMap {
 		chest8.add(new Chest(400, 300, 80, 60));
 		
 		//room 9 
-		enemy9.add(new Enemy(500, 500, 50, 50, true));
-		enemy9.add(new Enemy(700, 200, 50, 50, false));
-		enemy9.add(new Enemy(300, 100, 50, 50, true));
-		enemy9.add(new Enemy(400, 300, 50, 50, false));
-		enemy9.add(new Enemy(600, 580, 50, 50, false));
-		enemy9.add(new Enemy(500, 500, 50, 50, true));
-		enemy9.add(new Enemy(400, 100, 50, 50, false));
-		enemy9.add(new Enemy(300, 100, 50, 50, true));
-		enemy9.add(new Enemy(478, 670, 50, 50, false));
-		enemy9.add(new Enemy(437, 700, 50, 50, false));
+		chest9.add(new Chest(500, 300, 80, 60));
+		chest9.add(new Chest(700, 600, 80, 60));
+		enemy9.add(new Enemy(200, 300, 50, 50, false));
+		enemy9.add(new Enemy(600, 300, 50, 50, false));
+		enemy9.add(new Enemy(200, 600, 50, 50, true));
+		enemy9.add(new Enemy(600, 400, 50, 50, true));
+		enemy9.add(new Enemy(300, 200, 50, 50, true));
+		obs9.add(new Obstacle(500, 100, 50, 50, 0));
+		obs9.add(new Obstacle(550, 150, 50, 50, 0));
+		obs9.add(new Obstacle(200, 200, 50, 50, 0));
+		obs9.add(new Obstacle(450, 500, 50, 50, 0));
+		obs9.add(new Obstacle(350, 250, 50, 50, 0));
+		obs9.add(new Obstacle(750, 500, 50, 50, 0));
+		obs9.add(new Obstacle(200, 500, 50, 50, 0));
+		obs9.add(new Obstacle(750, 300, 50, 50, 0));
 		
 	}
 	
@@ -251,12 +279,6 @@ public class GameMap {
 	 * @param diff the difficulty selected by the user
 	 */
 	public void setMapDiff(boolean diff) {
-		if(!diff) {
-			enemy6.add(new Enemy(600, 400, 50, 50, false));
-			enemy6.add(new Enemy(400, 200, 50, 50, false));
-			enemy6.add(new Enemy(500, 500, 50, 50, false));
-			enemy6.add(new Enemy(300, 300, 50, 50, true));
-		}
 	}
 	
 	/**
