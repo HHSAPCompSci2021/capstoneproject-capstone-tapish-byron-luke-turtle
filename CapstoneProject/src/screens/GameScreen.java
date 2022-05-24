@@ -40,7 +40,7 @@ public class GameScreen extends Screen {
 	public GameScreen(DrawingSurface surface) {
 		super(900, 700);
 		this.surface = surface;
-		map = new GameMap();
+		map = new GameMap(surface.getDifficulty());
 		sprites = new ArrayList<Sprite>();
 		obstacles = new ArrayList<Obstacle>();
 		enemies = new ArrayList<Enemy>();
@@ -51,7 +51,6 @@ public class GameScreen extends Screen {
 		obstacles = map.getCurrentObstacle(current);
 		enemies = map.getCurrentEnemy(current);
 		riddles = map.getCurrentChest(current);
-		map.setMapDiff(surface.getDifficulty());
 	}
 
 	/**
@@ -59,7 +58,7 @@ public class GameScreen extends Screen {
 	 */
 	public void setup() {
 		start = System.currentTimeMillis();
-		backgr = surface.loadImage("img/gameBackground.jpg");
+		backgr = surface.loadImage("img/gameBackground.jpg"); 
 	}
 
 	/**
@@ -75,7 +74,7 @@ public class GameScreen extends Screen {
 	 * Method for drawing things on the Game processing window/screen. Runs the
 	 * timer in addition to drawing the Turtle sprite.
 	 */
-	public void draw() {
+	public void draw() {	
 		surface.image(backgr, 0, 0, 900, 700);
 		current = roomNum[i][j];
 		obstacles = map.getCurrentObstacle(current);

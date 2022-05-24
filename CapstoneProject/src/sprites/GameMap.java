@@ -8,40 +8,42 @@ import java.util.ArrayList;
  * @version 5/21/22
  */
 public class GameMap {
-	ArrayList<Obstacle> obs1 = new ArrayList<>();
-	ArrayList<Obstacle> obs2 = new ArrayList<>();
-	ArrayList<Obstacle> obs3 = new ArrayList<>();
-	ArrayList<Obstacle> obs4 = new ArrayList<>();
-	ArrayList<Obstacle> obs5 = new ArrayList<>();
-	ArrayList<Obstacle> obs6 = new ArrayList<>();
-	ArrayList<Obstacle> obs7 = new ArrayList<>();
-	ArrayList<Obstacle> obs8 = new ArrayList<>();
-	ArrayList<Obstacle> obs9 = new ArrayList<>();
-	ArrayList<Enemy> enemy1 = new ArrayList<>();
-	ArrayList<Enemy> enemy2 = new ArrayList<>();
-	ArrayList<Enemy> enemy3 = new ArrayList<>();
-	ArrayList<Enemy> enemy4 = new ArrayList<>();
-	ArrayList<Enemy> enemy5 = new ArrayList<>();
-	ArrayList<Enemy> enemy6 = new ArrayList<>();
-	ArrayList<Enemy> enemy7 = new ArrayList<>();
-	ArrayList<Enemy> enemy8 = new ArrayList<>();
-	ArrayList<Enemy> enemy9 = new ArrayList<>();
-	ArrayList<Chest> chest1 = new ArrayList<>();
-	ArrayList<Chest> chest2 = new ArrayList<>();
-	ArrayList<Chest> chest3 = new ArrayList<>();
-	ArrayList<Chest> chest4 = new ArrayList<>();
-	ArrayList<Chest> chest5 = new ArrayList<>();
-	ArrayList<Chest> chest6 = new ArrayList<>();
-	ArrayList<Chest> chest7 = new ArrayList<>();
-	ArrayList<Chest> chest8 = new ArrayList<>();
-	ArrayList<Chest> chest9 = new ArrayList<>();
-	Gate gate;
+	private ArrayList<Obstacle> obs1 = new ArrayList<>();
+	private ArrayList<Obstacle> obs2 = new ArrayList<>();
+	private ArrayList<Obstacle> obs3 = new ArrayList<>();
+	private ArrayList<Obstacle> obs4 = new ArrayList<>();
+	private ArrayList<Obstacle> obs5 = new ArrayList<>();
+	private ArrayList<Obstacle> obs6 = new ArrayList<>();
+	private ArrayList<Obstacle> obs7 = new ArrayList<>();
+	private ArrayList<Obstacle> obs8 = new ArrayList<>();
+	private ArrayList<Obstacle> obs9 = new ArrayList<>();
+	private ArrayList<Enemy> enemy1 = new ArrayList<>();
+	private ArrayList<Enemy> enemy2 = new ArrayList<>();
+	private ArrayList<Enemy> enemy3 = new ArrayList<>();
+	private ArrayList<Enemy> enemy4 = new ArrayList<>();
+	private ArrayList<Enemy> enemy5 = new ArrayList<>();
+	private ArrayList<Enemy> enemy6 = new ArrayList<>();
+	private ArrayList<Enemy> enemy7 = new ArrayList<>();
+	private ArrayList<Enemy> enemy8 = new ArrayList<>();
+	private ArrayList<Enemy> enemy9 = new ArrayList<>();
+	private ArrayList<Chest> chest1 = new ArrayList<>();
+	private ArrayList<Chest> chest2 = new ArrayList<>();
+	private ArrayList<Chest> chest3 = new ArrayList<>();
+	private ArrayList<Chest> chest4 = new ArrayList<>();
+	private ArrayList<Chest> chest5 = new ArrayList<>();
+	private ArrayList<Chest> chest6 = new ArrayList<>();
+	private ArrayList<Chest> chest7 = new ArrayList<>();
+	private ArrayList<Chest> chest8 = new ArrayList<>();
+	private ArrayList<Chest> chest9 = new ArrayList<>();
+	private Gate gate;
+	private static boolean diff;
 	
 	/**
 	 * constructor for creating the map. Sets the difficulty upon instantiation (true = easy, false = hard)
 	 * @param diff difficulty(true for easy, false for hard)
 	 */
-	public GameMap() {
+	public GameMap(boolean diff) {
+		this.diff = diff;
 		//room 1
 		obs1.add(new Obstacle(450, 300, 50, 50, 1));
 		obs1.add(new Obstacle(400, 300, 50, 50, 1));
@@ -89,8 +91,6 @@ public class GameMap {
 		obs3.add(new Obstacle(325, 400, 50, 50, 0));
 		obs3.add(new Obstacle(400, 500, 50, 50, 0));
 		obs3.add(new Obstacle(650, 300, 50, 50, 0));
-		
-			
 		
 		//room 5
 		chest5.add(new Chest(750, 550, 80, 60));
@@ -153,9 +153,6 @@ public class GameMap {
 		enemy4.add(new Enemy(400, 300, 50, 50, true));
 		enemy4.add(new Enemy(450, 100, 50, 50, true));
 		enemy4.add(new Enemy(500, 500, 50, 50, true));
-	
-
-		
 		
 		//room 6
 		obs6.add(new Obstacle(0, 450, 50, 50, 1));
@@ -274,12 +271,6 @@ public class GameMap {
 		
 	}
 	
-	/**
-	 * Sets up the map based on the difficulty
-	 * @param diff the difficulty selected by the user
-	 */
-	public void setMapDiff(boolean diff) {
-	}
 	
 	/**
 	 * Fetches the obstacle that corresponds to the current room

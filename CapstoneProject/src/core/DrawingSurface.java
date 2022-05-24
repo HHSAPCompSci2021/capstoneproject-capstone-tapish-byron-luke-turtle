@@ -131,8 +131,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		activeScreen = screens.get(0);
 		buttonVar = screen1;
 		timerVar = screen2;
-		diffVar = new GameMap();
-	//	gameDifficulty = true;
+		diffVar = new GameMap(true);
 	}
 
 	/**
@@ -191,12 +190,12 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 */
 	public void handleDropListEvents(GDropList list, GEvent event) {
 		System.out.println("DIFFICULTY SET TO: " + list.getSelectedText());
-		if(list.getSelectedText().equals("Easy")) 
-			diffVar.setMapDiff(true);
+		if(list.getSelectedText().equals("Easy")) {
 			gameDifficulty = true;
-		if(list.getSelectedText().equals("Hard"))
-			diffVar.setMapDiff(false);
+		}
+		if(list.getSelectedText().equals("Hard")) {
 			gameDifficulty = false;
+		}
 	}
 	
 	/**
