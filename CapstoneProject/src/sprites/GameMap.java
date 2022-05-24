@@ -117,7 +117,7 @@ public class GameMap {
 		enemy5.add(new Enemy(400, 500, 50, 50, false));
 		enemy5.add(new Enemy(750, 300, 50, 50, true));
 		
-<<<<<<< HEAD
+
 		
 		obs4.add(new Obstacle(600, 450, 50, 50, 1));
 		obs4.add(new Obstacle(300, 450, 50, 50, 1));
@@ -135,7 +135,7 @@ public class GameMap {
 		enemy4.add(new Enemy(400, 300, 50, 50, false));
 		enemy4.add(new Enemy(600, 700, 50, 50, false));
 		obs4.add(new Obstacle(500, 200, 50, 50, 1));
-=======
+
 		//room4
 		
 		//room 6
@@ -160,7 +160,7 @@ public class GameMap {
 		obs6.add(new Obstacle(300, 250, 50, 50, 1));
 		obs6.add(new Obstacle(350, 200, 50, 50, 1));
 		obs6.add(new Obstacle(400, 150, 50, 50, 1));
->>>>>>> c2ead27f3746fb18f7f8bc0dc7ca68aea205673c
+
 		
 		//room 6
 		obs6.add(new Obstacle(350, 450, 50, 50, 1));
