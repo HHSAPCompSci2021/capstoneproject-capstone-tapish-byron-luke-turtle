@@ -242,9 +242,11 @@ public class GameScreen extends Screen {
 		}
 
 		if (surface.isPressed(KeyEvent.VK_3)) {
-			surface.setTime(elapsed);
-			surface.setKeys((long) player.getKeysNo());
-			surface.switchScreen(ScreenSwitcher.VICTORY_S);
+			if(player.keyGoalReached() == true) {
+				surface.setTime(elapsed);
+				surface.setKeys((long) player.getKeysNo());
+				surface.switchScreen(ScreenSwitcher.VICTORY_S);
+			}
 		}
 	}
 	
