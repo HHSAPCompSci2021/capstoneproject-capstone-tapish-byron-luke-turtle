@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * This represents the map storing the obstacles and chests. 
- * @author Byron Tam
+ * @author Byron Tam, Luke Yang
  * @version 5/21/22
  */
 public class GameMap {
@@ -76,6 +76,9 @@ public class GameMap {
 		obs3.add(new Obstacle(400, 200, 50, 50, 0));
 		obs3.add(new Obstacle(600, 500, 50, 50, 0));
 		
+		// room 4
+		chest4.add(new Chest(750, 550, 80, 60));	
+		
 		//room 5
 		chest5.add(new Chest(750, 550, 80, 60));
 		chest5.add(new Chest(60, 100, 80, 60));
@@ -95,7 +98,7 @@ public class GameMap {
 		obs5.add(new Obstacle(650, 600, 50, 50, 1));
 		enemy5.add(new Enemy(400, 500, 50, 50, false));
 		
-		chest4.add(new Chest(100, 600, 80, 60));
+		
 		obs4.add(new Obstacle(600, 450, 50, 50, 1));
 		obs4.add(new Obstacle(300, 450, 50, 50, 1));
 		obs4.add(new Obstacle(300, 450, 50, 50, 1));
@@ -112,6 +115,75 @@ public class GameMap {
 		enemy4.add(new Enemy(400, 300, 50, 50, false));
 		enemy4.add(new Enemy(600, 700, 50, 50, false));
 		obs4.add(new Obstacle(500, 200, 50, 50, 1));
+		
+		//room 6
+		obs6.add(new Obstacle(350, 450, 50, 50, 1));
+		obs6.add(new Obstacle(100, 450, 50, 50, 0));
+		obs6.add(new Obstacle(300, 450, 50, 50, 1));
+		obs6.add(new Obstacle(200, 270, 50, 50, 0));
+		obs6.add(new Obstacle(600, 280, 50, 50, 1));
+		obs6.add(new Obstacle(500, 200, 50, 50, 0));
+		obs6.add(new Obstacle(270, 450, 50, 50, 1));
+		obs6.add(new Obstacle(500, 350, 50, 50, 0));
+		obs6.add(new Obstacle(100, 300, 50, 50, 1));
+		obs6.add(new Obstacle(40, 500, 50, 50, 1));
+		enemy6.add(new Enemy(500, 500, 50, 50, true));
+		enemy6.add(new Enemy(700, 200, 50, 50, false));
+		enemy6.add(new Enemy(300, 100, 50, 50, true));
+		enemy6.add(new Enemy(400, 300, 50, 50, false));
+		enemy6.add(new Enemy(600, 700, 50, 50, false));
+		
+		//room 7
+		obs7.add(new Obstacle(350, 0, 50, 50, 1));
+		obs7.add(new Obstacle(350, 50, 50, 50, 1));
+		obs7.add(new Obstacle(350, 100, 50, 50, 1));
+		obs7.add(new Obstacle(350, 150, 50, 50, 1));
+		obs7.add(new Obstacle(350, 200, 50, 50, 1));
+		obs7.add(new Obstacle(350, 250, 50, 50, 1));
+		obs7.add(new Obstacle(350, 300, 50, 50, 1));
+		obs7.add(new Obstacle(350, 350, 50, 50, 1));
+		obs7.add(new Obstacle(350, 400, 50, 50, 1));
+		obs7.add(new Obstacle(350, 450, 50, 50, 1));
+		obs7.add(new Obstacle(350, 500, 50, 50, 1));
+		obs7.add(new Obstacle(350, 550, 50, 50, 1));
+		obs7.add(new Obstacle(350, 600, 50, 50, 1));
+		obs7.add(new Obstacle(350, 650, 50, 50, 0));
+		obs7.add(new Obstacle(450, 0, 50, 50, 1));
+		obs7.add(new Obstacle(450, 50, 50, 50, 1));
+		obs7.add(new Obstacle(450, 100, 50, 50, 1));
+		obs7.add(new Obstacle(450, 150, 50, 50, 1));
+		obs7.add(new Obstacle(450, 200, 50, 50, 1));
+		obs7.add(new Obstacle(450, 250, 50, 50, 1));
+		obs7.add(new Obstacle(450, 300, 50, 50, 1));
+		obs7.add(new Obstacle(450, 350, 50, 50, 1));
+		obs7.add(new Obstacle(450, 400, 50, 50, 1));
+		obs7.add(new Obstacle(450, 450, 50, 50, 1));
+		obs7.add(new Obstacle(450, 500, 50, 50, 1));
+		obs7.add(new Obstacle(450, 550, 50, 50, 1));
+		
+		//room 8
+		enemy8.add(new Enemy(100, 500, 50, 50, true));
+		enemy8.add(new Enemy(700, 200, 50, 50, false));
+		enemy8.add(new Enemy(370, 100, 50, 50, true));
+		enemy8.add(new Enemy(400, 300, 50, 50, false));
+		enemy8.add(new Enemy(600, 700, 50, 50, false));
+		enemy8.add(new Enemy(550, 500, 50, 50, true));
+		enemy8.add(new Enemy(30, 200, 50, 50, false));
+		enemy8.add(new Enemy(300, 509, 50, 50, true));
+		enemy8.add(new Enemy(80, 300, 50, 50, false));
+		enemy8.add(new Enemy(500, 700, 50, 50, false));
+		
+		//room 9 
+		enemy9.add(new Enemy(500, 500, 50, 50, true));
+		enemy9.add(new Enemy(700, 200, 50, 50, false));
+		enemy9.add(new Enemy(300, 100, 50, 50, true));
+		enemy9.add(new Enemy(400, 300, 50, 50, false));
+		enemy9.add(new Enemy(600, 580, 50, 50, false));
+		enemy9.add(new Enemy(500, 500, 50, 50, true));
+		enemy9.add(new Enemy(400, 100, 50, 50, false));
+		enemy9.add(new Enemy(300, 100, 50, 50, true));
+		enemy9.add(new Enemy(478, 670, 50, 50, false));
+		enemy9.add(new Enemy(437, 700, 50, 50, false));
 		
 	}
 	
