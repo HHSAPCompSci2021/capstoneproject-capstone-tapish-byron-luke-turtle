@@ -211,7 +211,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 					+ "---> However, you think it'd be that easy? Once you get a hint, you have to remember what that hint will correspond to, as the chest will populate with a new riddle after the hint!\n"
 					+ "---> Oh, also 30 seconds will be added to your total elapsed time after taking the hint. I know, this is tough, but life's tough.\n"
 					+ "- Press the Esc key at any time to pause the game.\n"
-					+ "- Head to the gate once you think you have enough keys.\n\n"
+					+ "- Head to the gate once you think you have enough keys. Press the spacebar to try and open the gate when you are touching it.\n\n"
 					+ "Playing this game during demo time in class and have some questions? Call either Tapish, Byron, or Luke to help, we'd be happy to answer questions.");
 		}
 		else if(button == buttonVar.getStButton() && event == GEvent.CLICKED) {
