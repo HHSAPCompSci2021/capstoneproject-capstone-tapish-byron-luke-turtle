@@ -90,8 +90,7 @@ public class GameMap {
 		obs3.add(new Obstacle(400, 500, 50, 50, 0));
 		obs3.add(new Obstacle(650, 300, 50, 50, 0));
 		
-		// room 4
-		chest4.add(new Chest(750, 550, 80, 60));	
+			
 		
 		//room 5
 		chest5.add(new Chest(750, 550, 80, 60));
@@ -118,7 +117,8 @@ public class GameMap {
 		enemy5.add(new Enemy(750, 300, 50, 50, true));
 		
 
-		
+		//room4
+		chest4.add(new Chest(750, 550, 80, 60));
 		obs4.add(new Obstacle(600, 450, 50, 50, 1));
 		obs4.add(new Obstacle(300, 450, 50, 50, 1));
 		obs4.add(new Obstacle(300, 450, 50, 50, 1));
@@ -136,7 +136,7 @@ public class GameMap {
 		enemy4.add(new Enemy(600, 700, 50, 50, false));
 		obs4.add(new Obstacle(500, 200, 50, 50, 1));
 
-		//room4
+		
 		
 		//room 6
 		obs6.add(new Obstacle(0, 450, 50, 50, 1));
@@ -160,64 +160,77 @@ public class GameMap {
 		obs6.add(new Obstacle(300, 250, 50, 50, 1));
 		obs6.add(new Obstacle(350, 200, 50, 50, 1));
 		obs6.add(new Obstacle(400, 150, 50, 50, 1));
+		chest6.add(new Chest(750, 600, 80, 60));
 
-		
-		//room 6
-		obs6.add(new Obstacle(350, 450, 50, 50, 1));
-		obs6.add(new Obstacle(100, 450, 50, 50, 0));
-		obs6.add(new Obstacle(300, 450, 50, 50, 1));
-		obs6.add(new Obstacle(200, 270, 50, 50, 0));
-		obs6.add(new Obstacle(600, 280, 50, 50, 1));
-		obs6.add(new Obstacle(500, 200, 50, 50, 0));
-		obs6.add(new Obstacle(270, 450, 50, 50, 1));
-		obs6.add(new Obstacle(500, 350, 50, 50, 0));
-		obs6.add(new Obstacle(100, 300, 50, 50, 1));
-		obs6.add(new Obstacle(40, 500, 50, 50, 1));
-		enemy6.add(new Enemy(500, 500, 50, 50, true));
-		enemy6.add(new Enemy(700, 200, 50, 50, false));
-		enemy6.add(new Enemy(300, 100, 50, 50, true));
-		enemy6.add(new Enemy(400, 300, 50, 50, false));
-		enemy6.add(new Enemy(600, 700, 50, 50, false));
-		
 		//room 7
+		obs7.add(new Obstacle(0, 0, 50, 50, 1));
+		obs7.add(new Obstacle(50, 0, 50, 50, 1));
+		obs7.add(new Obstacle(100, 0, 50, 50, 1));
+		obs7.add(new Obstacle(200, 0, 50, 50, 1));
+		obs7.add(new Obstacle(250, 0, 50, 50, 1));
+		obs7.add(new Obstacle(150, 0, 50, 50, 1));
+		obs7.add(new Obstacle(150, 150, 50, 50, 1));
+		obs7.add(new Obstacle(150, 200, 50, 50, 1));
+		obs7.add(new Obstacle(150, 300, 50, 50, 1));
+		obs7.add(new Obstacle(150, 350, 50, 50, 1));
+		obs7.add(new Obstacle(150, 450, 50, 50, 1));
+		obs7.add(new Obstacle(150, 500, 50, 50, 1));
+		obs7.add(new Obstacle(150, 550, 50, 50, 1));
+		obs7.add(new Obstacle(150, 100, 50, 50, 1));
+		obs7.add(new Obstacle(150, 50, 50, 50, 1));
+		obs7.add(new Obstacle(300, 0, 50, 50, 1));
+		obs7.add(new Obstacle(300, 150, 50, 50, 1));
+		obs7.add(new Obstacle(300, 200, 50, 50, 1));
+		obs7.add(new Obstacle(300, 300, 50, 50, 1));
+		obs7.add(new Obstacle(300, 350, 50, 50, 1));
+		obs7.add(new Obstacle(300, 450, 50, 50, 1));
+		obs7.add(new Obstacle(300, 500, 50, 50, 1));
+		obs7.add(new Obstacle(300, 550, 50, 50, 1));
+		obs7.add(new Obstacle(300, 600, 50, 50, 1));
+		obs7.add(new Obstacle(300, 650, 50, 50, 1));
 		obs7.add(new Obstacle(350, 0, 50, 50, 1));
-		obs7.add(new Obstacle(350, 50, 50, 50, 1));
-		obs7.add(new Obstacle(350, 100, 50, 50, 1));
-		obs7.add(new Obstacle(350, 150, 50, 50, 1));
-		obs7.add(new Obstacle(350, 200, 50, 50, 1));
-		obs7.add(new Obstacle(350, 250, 50, 50, 1));
-		obs7.add(new Obstacle(350, 300, 50, 50, 1));
-		obs7.add(new Obstacle(350, 350, 50, 50, 1));
-		obs7.add(new Obstacle(350, 400, 50, 50, 1));
-		obs7.add(new Obstacle(350, 450, 50, 50, 1));
-		obs7.add(new Obstacle(350, 500, 50, 50, 1));
-		obs7.add(new Obstacle(350, 550, 50, 50, 1));
-		obs7.add(new Obstacle(350, 600, 50, 50, 1));
-		obs7.add(new Obstacle(350, 650, 50, 50, 0));
+		obs7.add(new Obstacle(400, 0, 50, 50, 1));
 		obs7.add(new Obstacle(450, 0, 50, 50, 1));
 		obs7.add(new Obstacle(450, 50, 50, 50, 1));
 		obs7.add(new Obstacle(450, 100, 50, 50, 1));
 		obs7.add(new Obstacle(450, 150, 50, 50, 1));
 		obs7.add(new Obstacle(450, 200, 50, 50, 1));
-		obs7.add(new Obstacle(450, 250, 50, 50, 1));
 		obs7.add(new Obstacle(450, 300, 50, 50, 1));
 		obs7.add(new Obstacle(450, 350, 50, 50, 1));
-		obs7.add(new Obstacle(450, 400, 50, 50, 1));
 		obs7.add(new Obstacle(450, 450, 50, 50, 1));
 		obs7.add(new Obstacle(450, 500, 50, 50, 1));
 		obs7.add(new Obstacle(450, 550, 50, 50, 1));
+		obs7.add(new Obstacle(0, 500, 50, 50, 0));
+		obs7.add(new Obstacle(100, 350, 50, 50, 0));
+		enemy7.add(new Enemy(100, 400, 50, 50, false));
+		enemy7.add(new Enemy(400, 250, 50, 50, false));
+		chest7.add(new Chest(25, 70, 80, 60));
+		chest7.add(new Chest(600, 100, 80, 60));
 		
 		//room 8
-		enemy8.add(new Enemy(100, 500, 50, 50, true));
-		enemy8.add(new Enemy(700, 200, 50, 50, false));
-		enemy8.add(new Enemy(370, 100, 50, 50, true));
-		enemy8.add(new Enemy(400, 300, 50, 50, false));
-		enemy8.add(new Enemy(600, 700, 50, 50, false));
-		enemy8.add(new Enemy(550, 500, 50, 50, true));
-		enemy8.add(new Enemy(30, 200, 50, 50, false));
-		enemy8.add(new Enemy(300, 509, 50, 50, true));
-		enemy8.add(new Enemy(80, 300, 50, 50, false));
-		enemy8.add(new Enemy(500, 700, 50, 50, false));
+		obs8.add(new Obstacle(100, 100, 50, 50, 1));
+		obs8.add(new Obstacle(150, 100, 50, 50, 1));
+		obs8.add(new Obstacle(200, 100, 50, 50, 1));
+		obs8.add(new Obstacle(250, 100, 50, 50, 1));
+		obs8.add(new Obstacle(300, 100, 50, 50, 1));
+		obs8.add(new Obstacle(350, 100, 50, 50, 1));
+		obs8.add(new Obstacle(400, 100, 50, 50, 1));
+		obs8.add(new Obstacle(450, 100, 50, 50, 1));
+		obs8.add(new Obstacle(500, 100, 50, 50, 1));
+		obs8.add(new Obstacle(550, 100, 50, 50, 1));
+		obs8.add(new Obstacle(600, 100, 50, 50, 1));
+		obs8.add(new Obstacle(650, 100, 50, 50, 1));
+		obs8.add(new Obstacle(700, 100, 50, 50, 1));
+		obs8.add(new Obstacle(750, 100, 50, 50, 1));
+		obs8.add(new Obstacle(100, 300, 50, 50, 1));
+		obs8.add(new Obstacle(750, 300, 50, 50, 1));
+		enemy8.add(new Enemy(200, 300, 50, 50, false));
+		enemy8.add(new Enemy(600, 300, 50, 50, false));
+		enemy8.add(new Enemy(200, 600, 50, 50, true));
+		enemy8.add(new Enemy(600, 400, 50, 50, true));
+		enemy8.add(new Enemy(300, 200, 50, 50, true));
+		enemy8.add(new Enemy(500, 300, 50, 50, true));
+		chest8.add(new Chest(400, 300, 80, 60));
 		
 		//room 9 
 		enemy9.add(new Enemy(500, 500, 50, 50, true));
