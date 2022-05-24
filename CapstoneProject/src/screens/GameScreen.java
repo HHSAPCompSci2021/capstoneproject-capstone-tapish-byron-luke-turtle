@@ -150,8 +150,13 @@ public class GameScreen extends Screen {
 			obstacles = map.getCurrentObstacle(temp);
 			enemies = map.getCurrentEnemy(temp);
 			riddles = map.getCurrentChest(temp);
+			
 			Turtle fake = new Turtle(player.getX(), 625, player.getWidth(), player.getHeight(), surface);
 			if(!checkRoom(fake)) {
+				sprites.clear();
+				sprites.addAll(obstacles);
+				sprites.addAll(enemies);
+				sprites.addAll(riddles);
 			i--;
 			player.setY(625);
 			} else {
@@ -163,8 +168,13 @@ public class GameScreen extends Screen {
 			obstacles = map.getCurrentObstacle(temp);
 			enemies = map.getCurrentEnemy(temp);
 			riddles = map.getCurrentChest(temp);
+			
 			Turtle fake = new Turtle(840, player.getY(), player.getWidth(), player.getHeight(), surface);
 			if(!checkRoom(fake)) {
+				sprites.clear();
+				sprites.addAll(obstacles);
+				sprites.addAll(enemies);
+				sprites.addAll(riddles);
 			j--;
 			player.setX(840);
 			} else {
@@ -177,8 +187,13 @@ public class GameScreen extends Screen {
 			obstacles = map.getCurrentObstacle(temp);
 			enemies = map.getCurrentEnemy(temp);
 			riddles = map.getCurrentChest(temp);
+			
 			Turtle fake = new Turtle(0, player.getY(), player.getWidth(), player.getHeight(), surface);
 			if(!checkRoom(fake)) {
+				sprites.clear();
+				sprites.addAll(obstacles);
+				sprites.addAll(enemies);
+				sprites.addAll(riddles);
 			j++;
 			player.setX(0);
 			} else {
@@ -190,8 +205,13 @@ public class GameScreen extends Screen {
 			obstacles = map.getCurrentObstacle(temp);
 			enemies = map.getCurrentEnemy(temp);
 			riddles = map.getCurrentChest(temp);
+			
 			Turtle fake = new Turtle(player.getX(), 0, player.getWidth(), player.getHeight(), surface);
 			if(!checkRoom(fake)) {
+				sprites.clear();
+				sprites.addAll(obstacles);
+				sprites.addAll(enemies);
+				sprites.addAll(riddles);
 			i++;
 			player.setY(0);
 			} else {
@@ -222,12 +242,6 @@ public class GameScreen extends Screen {
 		}
 
 		if (surface.isPressed(KeyEvent.VK_3)) {
-			surface.setTime(elapsed);
-			surface.setKeys((long) player.getKeysNo());
-			surface.switchScreen(ScreenSwitcher.VICTORY_S);
-		}
-
-		if (player.keyGoalReached() == true) {
 			surface.setTime(elapsed);
 			surface.setKeys((long) player.getKeysNo());
 			surface.switchScreen(ScreenSwitcher.VICTORY_S);
@@ -307,6 +321,9 @@ public class GameScreen extends Screen {
 						player.getHeight() + 18, surface);
 				if (fake.doesRectangleSpriteCollide(gate)) {
 					if (player.keyGoalReached()) {
+						surface.setScore(player.getScore((int)(System.currentTimeMillis() - start - timePaused)));
+						surface.setTime(System.currentTimeMillis() - start - timePaused);
+						surface.setKeys((long) player.getKeysNo());
 						surface.switchScreen(ScreenSwitcher.VICTORY_S);
 					} else {
 						JOptionPane.showMessageDialog(null, "Sorry, not enough keys! Go get some more!");
