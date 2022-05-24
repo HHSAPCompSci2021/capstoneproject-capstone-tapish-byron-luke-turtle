@@ -54,7 +54,11 @@ public class Turtle extends Sprite {
 					if (sprite instanceof Enemy) {
 						surface.switchScreen(ScreenSwitcher.GAME_OVER_S);
 					}
-					
+					if (sprite instanceof Obstacle) {
+						if(sprite.getLethality() == 0) { 
+						surface.switchScreen(ScreenSwitcher.GAME_OVER_S);
+						}
+					}
 					if(sprite.getX() >= getX()+getWidth()-speed) {
 						blockedRight = true;
 						setX(sprite.getX()-getWidth());	

@@ -118,5 +118,9 @@ public abstract class Sprite {
 	public void draw(PApplet g, int x, int y, int width, int height) {
 		g.image(pimage, x, y, width, height);
 	}
+	
+	public int getLethality() {
+		return 1;
+	}
 
 }
